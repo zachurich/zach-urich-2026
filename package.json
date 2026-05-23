@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "create:component": "node scripts/create-component.cjs"
   },
   "dependencies": {
     "next": "16.2.6",

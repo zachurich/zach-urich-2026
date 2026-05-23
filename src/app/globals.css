@@ -1,12 +1,30 @@
 :root {
-  --background: #ffffff;
+  --color-primary-tint-1: #c1c2ff;
+  --color-primary-tint-2: #8e78ff;
+  --color-primary: #5822ec;
+  --color-primary-shade-1: #4600ce;
+  --color-primary-shade-2: #2f009a;
+
+  --color-secondary-tint-1: #ffb3a5;
+  --color-secondary-tint-2: #ff5847;
+  --color-secondary: #c90000;
+  --color-secondary-shade-1: #9c0000;
+  --color-secondary-shade-2: #660000;
+
+  --color-tertiary-tint-1: #acddae;
+  --color-tertiary-tint-2: #4eb95b;
+  --color-tertiary: #008527;
+  --color-tertiary-shade-1: #005c00;
+  --color-tertiary-shade-2: #003200;
+
+  --background: #fdf4d3;
   --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #fdf4d3;
   }
 }
 
