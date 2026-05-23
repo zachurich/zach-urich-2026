@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/zachurich/Projects/Sites/**)",
+      "Read(//Users/zachurich/Projects/**)",
+      "Bash(npm run *)"
+    ]
+  }
+}
