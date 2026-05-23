@@ -3,11 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev ",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "create:component": "node scripts/create-component.cjs"
+    "lint": "eslint"
   },
   "dependencies": {
     "next": "16.2.6",
