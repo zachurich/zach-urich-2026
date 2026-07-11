@@ -3,7 +3,15 @@
     "allow": [
       "Read(//Users/zachurich/Projects/Sites/**)",
       "Read(//Users/zachurich/Projects/**)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(npm install *)",
+      "Bash(npm list *)",
+      "Bash(curl -s https://zachurich.com/)",
+      "Bash(npm info *)",
+      "Bash(node *)",
+      "Bash(python3 -m json.tool)",
+      "Bash(npx defuddle *)",
+      "Skill(agent-browser)"
     ]
   }
 }

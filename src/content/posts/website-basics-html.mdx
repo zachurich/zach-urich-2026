@@ -1,0 +1,76 @@
+export const metadata = {
+  title: "An Introduction to HTML",
+  date: "2021-01-03",
+  description:
+    "There are three fundamental technologies that are used to create what we call websites. These technologies are interpreted by web browsers to structure, style, and act on various elements of the page.",
+  slug: "website-basics-html",
+};
+
+There are three fundamental technologies that are used to create what we call websites. These technologies are interpreted by web browsers to structure, style, and act on various elements of the page. They are called **HTML**, **CSS**, and **JavaScript.** In this post, I will be attempting to give a simple introduction to the first and most important building block of any website.
+
+## HTML
+
+HTML stands for **Hypertext Markup Language**. This language is used to describe the structure of the page and is the foundation for every website. Web browsers know how to interpret HTML and even provide some default styles and behaviors unique to specific elements (these defaults can vary between different browsers). HTML elements are made up of a few basic components including **tags**, **text content**, and **attributes**.
+
+### Tags & Text Content
+
+HTML is a language of structure. Nesting plays a large part, meaning elements are written to contain text and/or other elements. This single paragraph element is used to describe basic, readable text on a web page. Looking at it, we can parse out the various components that make up the element.
+
+```
+//html
+<p>Hello</p>
+```
+
+When we see \`<p>\`, we are seeing the opening tag of the **paragraph** element. This tag indicates the beginning of the element, and can be immediately followed by some text that will be rendered to the page. In addition, the \`</p>\` tag is a closing tag, indicating the end of the paragraph element. Anything between these two tags \`<p></p>\` is the text content that will display on the page.
+
+Some other HTML elements that describe text content include the **heading** elements. These elements assist in indicating the hierarchy of text on a page. If a paragraph element describes basic paragraph text, heading elements describe...well, headings. They can be used to indicate the topic of a specific section of text and of the title of the webpage. Heading elements take the form of:
+
+```
+//html
+<h1>I am the most important text on a page.</h1>
+<h2>I am not as important as an h1, but still important.</h2>
+<h3>I am not as important as an h2, but still important.</h3>
+```
+
+The level of importance of each heading element is indicated by the number in its opening and closing tag, with \`h1\` being the most important and \`h6\` being the least. We can use the various heading levels to create a better reading hierarchy for our text.
+
+One last element I will cover here is called the Content Division element, or \`div\`. This element is a little more abstract than the others we have looked at. Generally, it is thought of as a grouping element:
+
+```
+//html
+<div>
+ <p>This is a paragraph.</p>
+ <p>This is another paragraph.</p>
+</div>
+```
+
+That's right, you can place other HTML elements between an opening and closing tag for this element. In the example above, the \`div\` element contains two children. The two children are the \`p\` elements, which are siblings to each other. Technically, you could just put some text content between an opening and closing tag of this element and it would display on the web page.
+
+```
+//html
+<div>Hello</div>
+```
+
+There are multiple problems with doing this however, including making your website less accessible for those who need to use screen readers. Screen readers interpret HTML elements on a page and read them to the person visiting the page. Text hierarchy can be completely lost if the correct elements are not used for their purpose, making your website inaccessible to lots of people. Using the correct HTML elements for their intended purpose also assists you, the developer, in making your HTML more readable to you and other developers.
+
+I would recommend taking a look at [MDN's html element reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) for more information about other HTML elements I won't be covering in this post.
+
+### Attributes
+
+While these aren't necessary to simply display elements on a webpage, attributes play an important role in assisting the other building blocks of a website (CSS and JavaScript) to be able to better interact with and style elements, among other purposes. Lets take a look at what these look like, using two commonly used attributes as examples:
+
+```
+//html
+<p class="cool-class">I'm a paragraph element using the class attribute!</p>
+<p id="cool-id">I'm a paragraph element using the id attribute!</p>
+```
+
+You can see that there is now an additional component being used in these paragraph elements, directly after the "p" and before the ">". This component is made up of an **attribute name** and an **attribute value**. The name comes before the "=" and the value comes after, enclosed between double quotes.
+
+Looking at the **class** attribute used in the example above, its **attribute value** is "cool-class". While this doesn't really mean anything to us at this point, the value of a **class** can be referenced in **CSS** to assist in styling all elements having that particular class.
+
+The second paragraph tag in the example above uses an attribute called **id**. An id attribute should have a unique value, meaning that this value should only be used once on the page. Just like with classes, the value of this attribute used can be referenced in **CSS**. The difference here however is that we can style that specific element with that id differently from all other elements. Technically, you could also just come up with a class value for an element that isn't used anywhere else for the same purpose.
+
+## Conclusion
+
+I hope this short introduction to HTML has helped you understand some basics. While there is a lot more to learn about it, I think this should be a good start for anyone interested in learning more about building websites or just curious about how they work.

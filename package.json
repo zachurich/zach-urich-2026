@@ -10,15 +10,25 @@
     "create:component": "node scripts/create-component.cjs"
   },
   "dependencies": {
+    "@mdx-js/loader": "^3.1.1",
+    "@mdx-js/react": "^3.1.1",
+    "@next/mdx": "^16.2.6",
+    "@types/mdx": "^2.0.13",
+    "classnames": "^2.5.1",
+    "lucide-react": "^1.16.0",
+    "mongoose": "^9.7.2",
+    "motion": "^12.40.0",
     "next": "16.2.6",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "shiki": "^4.1.0"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
+    "defuddle": "^0.18.1",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
     "typescript": "^5"

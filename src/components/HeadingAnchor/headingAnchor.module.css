@@ -1,0 +1,17 @@
+.headingAnchor {
+  /* Add your styles here */
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xxs);
+  flex-direction: row;
+}
+
+.anchorIcon {
+  visibility: hidden;
+  color: var(--brand-variant);
+  font-size: var(--font-size-lg);
+}
+
+.headingAnchor:hover .anchorIcon {
+  visibility: visible;
+}

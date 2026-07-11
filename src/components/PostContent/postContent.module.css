@@ -1,0 +1,25 @@
+.postContent h1 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.postContent h2 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.postContent h3 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.postContent p {
+  margin-bottom: var(--spacing-md);
+}
+
+.date {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  background-color: var(--background-variant);
+  padding: var(--spacing-xxs) var(--spacing-sm);
+  display: inline-block;
+  border-radius: var(--border-radius-sm);
+}

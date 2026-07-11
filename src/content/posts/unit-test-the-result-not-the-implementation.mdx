@@ -1,0 +1,89 @@
+import { Box } from "../../components/Box/Box";
+import { CodeBlock } from "../../components/CodeBlock/CodeBlock";
+
+export const metadata = {
+  title: "Testing For Results, Not Implementation Details",
+  date: "2025-07-27",
+  description:
+    'When writing unit tests, it is tempting to create a mini testing "framework" within your test files. Such a setup could include defining variables & functions for verifying that our many assertions match the expected behavior in a repeatable way.',
+  slug: "unit-test-the-result-not-the-implementation",
+};
+
+When writing unit tests, it is tempting to create a mini testing "framework" within your test files. Such a setup could include defining variables & functions for verifying that our many assertions match the expected behavior in a repeatable way. The result of this approach to unit testing is that we often begin repeating parts of the very implementations that we are validating, when what we should be doing is simply looking at output. From a testing perspective - who cares what the function is actually "doing" to achieve its result?
+
+Consider an example:
+
+```js
+import { BASE_URL } from 'constants';
+
+jest.mock('../utils')
+
+const buildParams = (params: Record<string, string>) => {
+  const paramsString = new URLSearchParams(params).toString();
+  return paramsString ? `?${paramsString}` : '';
+};
+
+const buildResult = (testParams: Record<string, string>) => {
+   return `${BASE_URL}${buildParams(testParams)}`;
+};
+
+test('getFinalUrl does the expected things', () => {
+  const testParams = {
+    param1: 'a',
+    param2: 'b'
+  };
+
+  const result = getFinalUrl(testParams);
+  expect(getStringifiedParamsFromObj).toHaveBeenCalledWith(testParams);
+  expect(result).toEqual(buildResult(testParams));
+  expect(result).not.toBeUndefined();
+})
+```
+
+<Box title="Note" variant="info">
+  This is a simplified example, but it is based on a real test file I have seen
+  in the wild.
+</Box>
+
+## Observations
+
+You will notice that we have imported a constant for asserting that the base url returned from our function remains consistent, as well as defined a few helper functions, one of which seems to be awfully similar to a function we have defined in our application code. We are also asserting that this function is called, which is unnecessary. Lastly, an assertion exists that simply tests that the output is not undefined, which is useless when we are already checking the output one line above. Having multiple assertions in a simple test like this might boost its "verbosity" and provide some false sense of confidence, but I would argue that it provides little value in this case.
+
+At an initial glance, it's also hard to immediately visualize what the exact output will be from this function without actually running it. Our unit tests should be readable, documenting the result of our code. This helps with understanding what the heck our code does without actually running anything, should we need a quick reference. It also greatly speeds up the time it takes to write tests! If your product owner comes to you asking "hey, how do we build URLs for redirecting to our partner service", it might take you a minute to grep.
+
+## Solution
+
+Here is the same test, simplified:
+
+```js
+test("getFinalUrl does the expected things", () => {
+  expect(
+    getFinalUrl({
+      param1: "a",
+      param2: "b",
+    }),
+  ).toEqual("https://test-partner.service.com/?param1=a&param2=b");
+});
+```
+
+You will hopefully notice two things:
+
+1. There is little to no setup for this test. If this was the first test in a brand new test file, setup would be quick and painless. Adding new tests would be just as simple.
+
+2. You can immediately understand what the function being tested does, and an example output based on provided input.
+
+## Summary
+
+Keep your unit tests simple. Try to avoid writing test code that repeats your application logic. Otherwise, you are writing brittle test code that could be full of bugs and require more maintenance than desired.
+
+## In other news...
+
+Here's some games I've been playing lately.
+
+### Pipistrello and the Cursed Yoyo
+
+An interesting indie game full of yoyo-puzzles, set in a unique world.
+
+### Super Mario Strikers
+
+A Gamecube classic. If you like chaos, this game is for you.

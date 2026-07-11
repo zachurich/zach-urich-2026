@@ -1,0 +1,30 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+  transition: backdrop-filter 0.2s ease;
+  /* border-bottom 0.3s ease; */
+}
+
+.header.scrolled {
+  backdrop-filter: blur(5px);
+  /* border-bottom: var(--border-primary); */
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: var(--sidebar-width);
+}
+
+.siteTitle {
+  color: var(--brand);
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-bold);
+}

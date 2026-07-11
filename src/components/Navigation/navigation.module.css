@@ -1,0 +1,60 @@
+.navigation {
+  min-height: 100vh;
+  padding: 0 var(--spacing-base);
+  border-right: var(--border-primary);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.siteTitle {
+  display: block;
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.navigationList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  min-width: var(--sidebar-width);
+}
+
+.externalLinks {
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  list-style: none;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+  margin-top: var(--spacing-base);
+  margin-bottom: var(--spacing-lg);
+  color: var(--secondary-text-color);
+}
+
+.externalLinks .link {
+  gap: var(--spacing-xs);
+}
+
+.link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--secondary-text-color);
+  text-decoration: none;
+}
+
+.link.active {
+  color: var(--brand);
+}
+
+.link:not(.active) svg {
+  stroke: var(--foreground);
+}
+
+.link:hover svg {
+  stroke: inherit;
+}

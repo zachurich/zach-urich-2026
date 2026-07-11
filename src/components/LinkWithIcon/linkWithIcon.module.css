@@ -1,0 +1,12 @@
+.linkWithIcon {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-xs);
+  align-items: center;
+  color: var(--brand);
+  font-size: var(--font-size-base);
+}
+
+.linkWithIcon svg {
+  padding-top: 2px;
+}

@@ -1,0 +1,8 @@
+.box {
+  padding: var(--spacing-base);
+  background-color: var(--background-variant);
+  /* border: var(--border-primary); */
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-md);
+  overflow-x: auto;
+}
