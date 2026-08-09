@@ -1,4 +1,4 @@
-import { getContentBySlug } from "@/lib/mdx";
+import pages from "@/lib/pages";
 import { Page } from "../../components/Page/Page";
 import { Section } from "../../components/Section/Section";
 import { PostContent } from "../../components/PostContent/PostContent";
@@ -7,7 +7,7 @@ import { FadeIn } from "../../components/FadeIn/FadeIn";
 export const metadata = { title: "About" };
 
 export default async function AboutPage() {
-  const Content = await getContentBySlug("pages", "about");
+  const Content = await pages.getPageBySlug("about");
   return (
     <Page>
       <FadeIn>

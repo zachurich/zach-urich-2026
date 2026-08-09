@@ -1,0 +1,9 @@
+.cta > div {
+  border: var(--border-secondary);
+}
+
+.cta {
+  display: block;
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+}

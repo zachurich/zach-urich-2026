@@ -24,7 +24,7 @@
 
 .primary,
 .secondary {
-  padding: var(--spacing-xs) var(--spacing-sm);
+  padding: var(--spacing-xs) var(--spacing-base);
   background-color: var(--background);
   border: var(--border-primary);
   color: var(--foreground);

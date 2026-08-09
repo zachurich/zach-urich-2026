@@ -11,7 +11,12 @@
       "Bash(node *)",
       "Bash(python3 -m json.tool)",
       "Bash(npx defuddle *)",
-      "Skill(agent-browser)"
+      "Skill(agent-browser)",
+      "Bash(npx tsc *)",
+      "Bash(echo \"EXIT: $?\")",
+      "Bash(python3 *)",
+      "Bash(echo \"EXIT:$?\")",
+      "Bash(npx eslint *)"
     ]
   }
 }

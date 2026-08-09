@@ -41,15 +41,17 @@ if (fs.existsSync(componentDir)) {
 fs.mkdirSync(componentDir, { recursive: true });
 
 // Component template
-const componentTemplate = `import styles from "./${cssModuleFileName}";
+const componentTemplate = `import classNames from "classnames";
+import styles from "./${cssModuleFileName}";
 
 type Props = {
   children?: React.ReactNode;
+  className?: string;
 };
 
-export const ${componentName} = ({ children }: Props) => {
+export const ${componentName} = ({ children, className }: Props) => {
   return (
-    <div className={styles.${componentName.charAt(0).toLowerCase() + componentName.slice(1)}}>
+    <div className={classNames(styles.${componentName.charAt(0).toLowerCase() + componentName.slice(1)}, className)}>
       {children}
     </div>
   );

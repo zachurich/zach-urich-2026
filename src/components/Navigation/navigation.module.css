@@ -24,7 +24,7 @@
 
 .externalLinks {
   flex-direction: column;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-xs);
   list-style: none;
   margin-left: 0;
   margin-right: 0;

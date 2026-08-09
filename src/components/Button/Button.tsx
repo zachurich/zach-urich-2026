@@ -4,11 +4,19 @@ import styles from "./button.module.css";
 type Props = {
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   children: React.ReactNode;
-  variant?: "primary" | "secondary" | "icon" | "iconSm" | "pill" | "inline" | "error";
+  variant?:
+    | "primary"
+    | "secondary"
+    | "icon"
+    | "iconSm"
+    | "pill"
+    | "inline"
+    | "error";
   icon?: React.ReactNode;
   iconPlacement?: "left" | "right";
   className?: string;
   getRef?: React.Ref<HTMLButtonElement>;
+  tagType?: "button" | "div";
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Button = ({
@@ -20,8 +28,22 @@ export const Button = ({
   variant = "primary",
   disabled,
   getRef,
+  tagType = "button",
   ...rest
 }: Props) => {
+  if (tagType === "div") {
+    return (
+      <div
+        className={classNames(styles.button, styles[variant], className, {
+          [styles.disabled]: disabled,
+        })}
+      >
+        {iconPlacement === "left" && icon}
+        {children}
+        {iconPlacement === "right" && icon}
+      </div>
+    );
+  }
   return (
     <button
       ref={getRef}

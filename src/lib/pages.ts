@@ -1,33 +1,28 @@
-import { readdirSync, readFileSync } from "node:fs";
-import { join } from "node:path";
+import mdx, { ContentMetadata } from "@/lib/mdx";
 
-const PAGES_DIR = join(process.cwd(), "src/content/pages");
+export type PageMetadata = ContentMetadata;
 
-export interface PageMetadata {
-  title: string;
-  date: string;
-  description: string;
-  slug: string;
+function getPageSlugs(): string[] {
+  return mdx.getContentSlugs("pages");
 }
 
-export function getPageSlugs(): string[] {
-  return readdirSync(PAGES_DIR)
-    .filter((f) => f.endsWith(".mdx"))
-    .map((f) => f.replace(/\.mdx$/, ""));
+function getPageMetadata(slug: string): PageMetadata {
+  return mdx.getContentMetadata("pages", slug);
 }
 
-export function getPageMetadata(slug: string): PageMetadata {
-  const file = readFileSync(join(PAGES_DIR, `${slug}.mdx`), "utf-8");
-  const match = file.match(/export const metadata = ({[\s\S]*?});/);
-  if (!match) throw new Error(`No metadata found in ${slug}.mdx`);
-  // Safe: only runs on our own build-time content files
-  const data = new Function(`return ${match[1]}`)() as Omit<
-    PageMetadata,
-    "slug"
-  >;
-  return { ...data, slug };
+function getAllPages(): PageMetadata[] {
+  return mdx.getAllContent("pages");
 }
 
-export function getAllPages(): PageMetadata[] {
-  return getPageSlugs().map(getPageMetadata);
+function getPageBySlug(slug: string) {
+  return mdx.getContentBySlug("pages", slug);
 }
+
+const pages = {
+  getPageSlugs,
+  getPageMetadata,
+  getAllPages,
+  getPageBySlug,
+};
+
+export default pages;

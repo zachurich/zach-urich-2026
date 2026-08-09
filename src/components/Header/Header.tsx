@@ -32,7 +32,7 @@ export const Header = () => {
     <header className={styles.header}>
       <div className={styles.left}></div>
       <Button onClick={theme.toggleTheme} variant="icon">
-        {theme.theme === "dark" ? <SunDim /> : <Moon />}
+        {theme.theme === "dark" ? <SunDim size={20} /> : <Moon size={20} />}
       </Button>
     </header>
   );

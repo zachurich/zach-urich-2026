@@ -1,0 +1,86 @@
+import pages from "@/lib/pages";
+import { Page } from "../../components/Page/Page";
+import { Section } from "../../components/Section/Section";
+import { PostContent } from "../../components/PostContent/PostContent";
+
+import { FadeIn } from "../../components/FadeIn/FadeIn";
+import github from "@/lib/github";
+import { Box } from "@/components/Box/Box";
+import { LineItem } from "@/components/LineItem/LineItem";
+import { LinkWithIcon } from "@/components/LinkWithIcon/LinkWithIcon";
+import { List } from "@/components/List/List";
+export const metadata = { title: "About" };
+
+export default async function AboutPage() {
+  const recentCommit = await github.getLatestCommit();
+  return (
+    <Page>
+      <FadeIn>
+        <h1>
+          Site{" "}
+          <FadeIn delay={0.25} tagType="span">
+            <em>info</em>
+          </FadeIn>
+        </h1>
+      </FadeIn>
+      {/* <h2 className="body2 heading2variant">read if you dare</h2> */}
+      <FadeIn delay={0.35}>
+        <Section>
+          <h2 className="s-b-sm">Tech Stack</h2>
+          <Box className="s-b-sm">
+            <List
+              items={[
+                <LineItem key="react">
+                  <LinkWithIcon href="https://reactjs.org/" external>
+                    React
+                  </LinkWithIcon>
+                  <span className="bodysmall">UI Library</span>
+                </LineItem>,
+                <LineItem key="nextjs">
+                  <LinkWithIcon href="https://nextjs.org/" external>
+                    Next.js
+                  </LinkWithIcon>
+                  <span className="bodysmall">Framework</span>
+                </LineItem>,
+                <LineItem key="typescript">
+                  <LinkWithIcon href="https://www.typescriptlang.org/" external>
+                    TypeScript
+                  </LinkWithIcon>
+                  <span className="bodysmall">Programming Language</span>
+                </LineItem>,
+                <LineItem key="backpack">
+                  <LinkWithIcon
+                    href="https://github.com/zachurich/backpack"
+                    external
+                  >
+                    Backpack
+                  </LinkWithIcon>
+                  <span className="bodysmall">
+                    My subjective starter bag of components, themeing, & utils.
+                  </span>
+                </LineItem>,
+              ]}
+            />
+          </Box>
+        </Section>
+      </FadeIn>
+      <FadeIn delay={0.45}>
+        <Section>
+          <h2 className="s-b-sm">Latest commit</h2>
+          <Box>
+            <LineItem className="s-b-base">
+              <div>Last updated</div>
+              <span className="bodysmall">{recentCommit?.date}</span>
+            </LineItem>
+            <LineItem>
+              <LinkWithIcon external href={recentCommit?.url}>
+                <span>{recentCommit?.sha}</span>
+              </LinkWithIcon>
+              <div className="bodysmall">{recentCommit?.message}</div>
+            </LineItem>
+          </Box>
+        </Section>
+      </FadeIn>
+    </Page>
+  );
+}

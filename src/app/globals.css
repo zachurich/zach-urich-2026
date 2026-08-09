@@ -99,6 +99,7 @@
 
   --background: var(--color-neutral);
   --background-variant: var(--color-neutral-100);
+  --background-variant-2: var(--color-tertiary-tint-1);
 
   --foreground: var(--color-neutral-900);
   --foreground-variant: var(--color-neutral-700);
@@ -231,6 +232,7 @@ a,
   color: inherit;
   text-decoration: underline;
   text-underline-offset: calc(var(--spacing-xxs) * 0.75);
+  text-decoration-color: rgba(0, 0, 0, 0.4);
   font-weight: var(--font-weight-medium);
 }
 

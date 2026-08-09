@@ -1,3 +1,5 @@
+import { InlineBox } from "../../components/InlineBox/InlineBox";
+
 export const metadata = {
   title: "An Introduction to HTML",
   date: "2021-01-03",
@@ -16,17 +18,15 @@ HTML stands for **Hypertext Markup Language**. This language is used to describe
 
 HTML is a language of structure. Nesting plays a large part, meaning elements are written to contain text and/or other elements. This single paragraph element is used to describe basic, readable text on a web page. Looking at it, we can parse out the various components that make up the element.
 
-```
-//html
+```html
 <p>Hello</p>
 ```
 
-When we see \`<p>\`, we are seeing the opening tag of the **paragraph** element. This tag indicates the beginning of the element, and can be immediately followed by some text that will be rendered to the page. In addition, the \`</p>\` tag is a closing tag, indicating the end of the paragraph element. Anything between these two tags \`<p></p>\` is the text content that will display on the page.
+When we see <InlineBox>&lt;p&gt;</InlineBox>, we are seeing the opening tag of the **paragraph** element. This tag indicates the beginning of the element, and can be immediately followed by some text that will be rendered to the page. In addition, the <code>&lt;/p&gt;</code> tag is a closing tag, indicating the end of the paragraph element. Anything between these two tags <code>&lt;p&gt;&lt;/p&gt;</code> is the text content that will display on the page.
 
 Some other HTML elements that describe text content include the **heading** elements. These elements assist in indicating the hierarchy of text on a page. If a paragraph element describes basic paragraph text, heading elements describe...well, headings. They can be used to indicate the topic of a specific section of text and of the title of the webpage. Heading elements take the form of:
 
-```
-//html
+```html
 <h1>I am the most important text on a page.</h1>
 <h2>I am not as important as an h1, but still important.</h2>
 <h3>I am not as important as an h2, but still important.</h3>
@@ -36,18 +36,16 @@ The level of importance of each heading element is indicated by the number in it
 
 One last element I will cover here is called the Content Division element, or \`div\`. This element is a little more abstract than the others we have looked at. Generally, it is thought of as a grouping element:
 
-```
-//html
+```html
 <div>
- <p>This is a paragraph.</p>
- <p>This is another paragraph.</p>
+  <p>This is a paragraph.</p>
+  <p>This is another paragraph.</p>
 </div>
 ```
 
 That's right, you can place other HTML elements between an opening and closing tag for this element. In the example above, the \`div\` element contains two children. The two children are the \`p\` elements, which are siblings to each other. Technically, you could just put some text content between an opening and closing tag of this element and it would display on the web page.
 
-```
-//html
+```html
 <div>Hello</div>
 ```
 
@@ -59,8 +57,7 @@ I would recommend taking a look at [MDN's html element reference](https://develo
 
 While these aren't necessary to simply display elements on a webpage, attributes play an important role in assisting the other building blocks of a website (CSS and JavaScript) to be able to better interact with and style elements, among other purposes. Lets take a look at what these look like, using two commonly used attributes as examples:
 
-```
-//html
+```html
 <p class="cool-class">I'm a paragraph element using the class attribute!</p>
 <p id="cool-id">I'm a paragraph element using the id attribute!</p>
 ```

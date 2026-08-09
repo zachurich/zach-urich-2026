@@ -6,9 +6,6 @@ import guestBook from "@/lib/guestBook";
 
 export default async function GuestBookPage() {
   const entries = await guestBook.getGuestBookEntries();
-  await guestBook.saveGuestBookEntry("John Doe", "This is a test message.");
-  // await guestBook.__debug_flushAllGuestBookEntries();
-  console.log("Guest book entries:", entries);
   return (
     <Page>
       <FadeIn>

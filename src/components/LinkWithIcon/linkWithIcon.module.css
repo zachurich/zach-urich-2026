@@ -1,7 +1,7 @@
 .linkWithIcon {
   display: flex;
   flex-direction: row;
-  gap: var(--spacing-xs);
+  gap: var(--spacing-xxs);
   align-items: center;
   color: var(--brand);
   font-size: var(--font-size-base);

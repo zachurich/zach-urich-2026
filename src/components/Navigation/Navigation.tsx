@@ -18,16 +18,31 @@ const colorList = [
 ];
 
 const getExternalRoutes = () => routes.filter((route) => route.external);
-const getInternalRoutes = () => routes.filter((route) => !route.external);
+const getInternalRoutes = () =>
+  routes.filter((route) => !route.external && route.underConstruction !== true);
 
 const Nav = ({ internal }: { internal?: boolean }) => {
   const pathname = usePathname();
   const routeList = internal ? getInternalRoutes() : getExternalRoutes();
+
+  const getIsActive = (routePath: string) => {
+    if (routePath.length === 1) {
+      return routePath === pathname;
+    }
+
+    // Multiple slashes exist in the pathname
+    if (pathname.lastIndexOf("/") > 0) {
+      return pathname.startsWith(routePath);
+    }
+
+    return pathname === routePath;
+  };
+
   return routeList.map((route, i) => {
     const common = {
       href: route.path,
       className: classNames(styles.link, {
-        [styles.active]: pathname.includes(route.path),
+        [styles.active]: getIsActive(route.path),
         link2: route.external,
       }),
     };

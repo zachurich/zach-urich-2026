@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./linkWithIcon.module.css";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import classNames from "classnames";
 
 type Props = {
@@ -10,10 +10,15 @@ type Props = {
 };
 
 export const LinkWithIcon = ({ children, href, className }: Props) => {
+  const external = href.startsWith("http");
   return (
-    <Link className={classNames(styles.linkWithIcon, className)} href={href}>
+    <Link
+      className={classNames(styles.linkWithIcon, className)}
+      href={href}
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+    >
       <div className="link">{children}</div>
-      <ArrowRight size={20} />
+      {external ? <ArrowUpRight size={20} /> : <ArrowRight size={20} />}
     </Link>
   );
 };

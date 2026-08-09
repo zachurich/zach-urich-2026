@@ -1,49 +1,29 @@
-import { readdirSync, readFileSync } from "node:fs";
-import { join } from "node:path";
+import mdx, { ContentMetadata } from "@/lib/mdx";
 
-const POSTS_DIR = join(process.cwd(), "src/content/posts");
+export type PostMetadata = ContentMetadata;
 
-export interface PostMetadata {
-  title: string;
-  date: string;
-  description: string;
-  slug: string;
+function getPostSlugs(): string[] {
+  return mdx.getContentSlugs("posts");
 }
 
-export function getPostSlugs(): string[] {
-  return readdirSync(POSTS_DIR)
-    .filter((f) => f.endsWith(".mdx"))
-    .map((f) => f.replace(/\.mdx$/, ""));
+function getPostMetadata(slug: string): PostMetadata {
+  return mdx.getContentMetadata("posts", slug);
 }
 
-export function getPostMetadata(slug: string): PostMetadata {
-  const file = readFileSync(join(POSTS_DIR, `${slug}.mdx`), "utf-8");
-  const match = file.match(/export const metadata = ({[\s\S]*?});/);
-  if (!match) throw new Error(`No metadata found in ${slug}.mdx`);
-  // Safe: only runs on our own build-time content files
-  const data = new Function(`return ${match[1]}`)() as Omit<
-    PostMetadata,
-    "slug"
-  >;
-  return { ...data, slug };
+function getAllPosts(sort: "asc" | "desc" = "desc"): PostMetadata[] {
+  const posts = mdx.getAllContent("posts");
+  return sort === "asc" ? [...posts].reverse() : posts;
 }
 
-export function getAllPosts(sort: "asc" | "desc" = "desc"): PostMetadata[] {
-  return getPostSlugs()
-    .map(getPostMetadata)
-    .sort((a, b) =>
-      sort === "asc" ? (a.date > b.date ? 1 : -1) : a.date < b.date ? 1 : -1,
-    );
+function getSomePosts(count: number): PostMetadata[] {
+  return mdx.getSomeContent("posts", count);
 }
 
 /**
  * Returns next post in sorted order (newest to oldest). Otherwise, returns previous post.
- * @param slug
- * @returns
  */
-export function getNextPost(slug: string): PostMetadata | null {
+function getNextPost(slug: string): PostMetadata | null {
   const posts = getAllPosts();
-  // find nearest next date
   const { date } = getPostMetadata(slug);
   const index = posts.findIndex(
     (s) => new Date(s.date).getTime() === new Date(date).getTime(),
@@ -51,3 +31,18 @@ export function getNextPost(slug: string): PostMetadata | null {
   if (index <= 0) return posts[index + 1] || null; // loop to end if at start
   return posts[index - 1];
 }
+
+function getPostBySlug(slug: string) {
+  return mdx.getContentBySlug("posts", slug);
+}
+
+const posts = {
+  getPostSlugs,
+  getPostMetadata,
+  getAllPosts,
+  getSomePosts,
+  getNextPost,
+  getPostBySlug,
+};
+
+export default posts;
