@@ -37,14 +37,11 @@
   font-weight: var(--font-weight-bold);
 }
 
-/* Hidden by default (desktop shows the sidebar's own HomeLink + no toggle
-   needed); shown below the breakpoint via CSS only, so there's no reliance
-   on JS/UA to decide this before first paint. */
 .mobileHomeLink {
   display: none;
 }
 
-.mobileMenuButton {
+button.mobileMenuButton {
   display: none;
 }
 
@@ -53,7 +50,7 @@
     display: flex;
   }
 
-  .mobileMenuButton {
+  button.mobileMenuButton {
     display: inline-flex;
   }
 }

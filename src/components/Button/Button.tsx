@@ -34,7 +34,7 @@ export const Button = ({
   if (tagType === "div") {
     return (
       <div
-        className={classNames(styles.button, styles[variant], className, {
+        className={classNames(className, styles.button, styles[variant], {
           [styles.disabled]: disabled,
         })}
       >
