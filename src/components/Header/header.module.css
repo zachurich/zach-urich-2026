@@ -3,7 +3,9 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding: var(--spacing-sm) var(--spacing-lg);
+  height: var(--header-height);
+  z-index: 100;
+  padding: 0 var(--spacing-lg);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,7 +15,7 @@
 }
 
 .header.scrolled {
-  backdrop-filter: blur(5px);
+  backdrop-filter: var(--blur);
   /* border-bottom: var(--border-primary); */
 }
 
@@ -33,4 +35,25 @@
   color: var(--brand);
   font-size: var(--font-size-xxl);
   font-weight: var(--font-weight-bold);
+}
+
+/* Hidden by default (desktop shows the sidebar's own HomeLink + no toggle
+   needed); shown below the breakpoint via CSS only, so there's no reliance
+   on JS/UA to decide this before first paint. */
+.mobileHomeLink {
+  display: none;
+}
+
+.mobileMenuButton {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobileHomeLink {
+    display: flex;
+  }
+
+  .mobileMenuButton {
+    display: inline-flex;
+  }
 }

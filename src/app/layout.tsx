@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import { ThemeProvider } from "@/contexts/Theme/ThemeProvider";
+import { MobileNavProvider } from "@/contexts/MobileNav/MobileNavProvider";
 import "./globals.css";
 import { Header } from "../components/Header/Header";
 import { Navigation } from "../components/Navigation/Navigation";
@@ -29,11 +30,13 @@ export default async function RootLayout({
     <html lang="en" suppressHydrationWarning data-theme={serverTheme}>
       <body className={primaryFont.className}>
         <ThemeProvider initialTheme={serverTheme}>
-          <Header />
-          <SiteContent>
-            <Navigation tagType="aside" />
-            {children}
-          </SiteContent>
+          <MobileNavProvider>
+            <Header />
+            <SiteContent>
+              <Navigation tagType="aside" />
+              {children}
+            </SiteContent>
+          </MobileNavProvider>
         </ThemeProvider>
       </body>
     </html>

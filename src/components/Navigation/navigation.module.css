@@ -7,6 +7,30 @@
   gap: var(--spacing-xl);
 }
 
+@media (max-width: 768px) {
+  .navigation {
+    display: none;
+  }
+
+  .navigation.mobileOpen {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    top: calc(var(--spacing-lg));
+    z-index: 50;
+    width: 100%;
+    min-height: 100dvh;
+    padding: var(--spacing-xxxxl) var(--spacing-lg) var(--spacing-xl);
+    border-right: none;
+    backdrop-filter: var(--blur);
+    overflow-y: auto;
+  }
+
+  .desktopHomeLink {
+    display: none;
+  }
+}
+
 .navigationList {
   display: flex;
   flex-direction: column;

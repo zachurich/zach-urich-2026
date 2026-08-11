@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Page } from "@/components/Page/Page";
-import { Cta } from "@/components/Cta/Cta";
 import posts from "@/lib/posts";
 import { PostContent } from "@/components/PostContent/PostContent";
 import type { MDXComponents } from "mdx/types";
@@ -37,12 +36,12 @@ const overrideComponents: MDXComponents = {
   ),
 };
 
-const getPreviousPost = (slug: string) => {
-  const slugs = posts.getPostSlugs();
-  const index = slugs.findIndex((s) => s === slug);
-  if (index === -1 || index === slugs.length - 1) return null;
-  return posts.getPostMetadata(slugs[index + 1]);
-};
+// const getPreviousPost = (slug: string) => {
+//   const slugs = posts.getPostSlugs();
+//   const index = slugs.findIndex((s) => s === slug);
+//   if (index === -1 || index === slugs.length - 1) return null;
+//   return posts.getPostMetadata(slugs[index + 1]);
+// };
 
 export default async function PostPage({
   params,

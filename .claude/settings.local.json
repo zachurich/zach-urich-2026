@@ -16,7 +16,12 @@
       "Bash(echo \"EXIT: $?\")",
       "Bash(python3 *)",
       "Bash(echo \"EXIT:$?\")",
-      "Bash(npx eslint *)"
+      "Bash(npx eslint *)",
+      "Bash(echo \"started with pid $!\")",
+      "Bash(curl *)",
+      "Bash(npx --yes agent-browser --version)",
+      "Bash(lsof *)",
+      "Bash(npx agent-browser *)"
     ]
   }
 }

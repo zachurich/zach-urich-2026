@@ -97,6 +97,8 @@
 
   --max-container-width: 768px;
 
+  --blur: blur(20px);
+
   --background: var(--color-neutral);
   --background-variant: var(--color-neutral-100);
   --background-variant-2: var(--color-tertiary-tint-1);
@@ -109,6 +111,7 @@
 
   /* -- Layout -- */
   --sidebar-width: calc(var(--spacing-md) * 8);
+  --header-height: calc(var(--spacing-xxxxl) + var(--spacing-xs));
 }
 
 /* ─── Theme ─────────────────────────────────────────────────────────────────── */
