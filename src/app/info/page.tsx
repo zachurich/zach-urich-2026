@@ -31,28 +31,25 @@ export default async function AboutPage() {
             <List
               items={[
                 <LineItem key="react">
-                  <LinkWithIcon href="https://reactjs.org/" external>
+                  <LinkWithIcon href="https://reactjs.org/">
                     React
                   </LinkWithIcon>
                   <span className="bodysmall">UI Library</span>
                 </LineItem>,
                 <LineItem key="nextjs">
-                  <LinkWithIcon href="https://nextjs.org/" external>
+                  <LinkWithIcon href="https://nextjs.org/">
                     Next.js
                   </LinkWithIcon>
                   <span className="bodysmall">Framework</span>
                 </LineItem>,
                 <LineItem key="typescript">
-                  <LinkWithIcon href="https://www.typescriptlang.org/" external>
+                  <LinkWithIcon href="https://www.typescriptlang.org/">
                     TypeScript
                   </LinkWithIcon>
                   <span className="bodysmall">Programming Language</span>
                 </LineItem>,
                 <LineItem key="backpack">
-                  <LinkWithIcon
-                    href="https://github.com/zachurich/backpack"
-                    external
-                  >
+                  <LinkWithIcon href="https://github.com/zachurich/backpack">
                     Backpack
                   </LinkWithIcon>
                   <span className="bodysmall">
@@ -73,7 +70,7 @@ export default async function AboutPage() {
               <span className="bodysmall">{recentCommit?.date}</span>
             </LineItem>
             <LineItem>
-              <LinkWithIcon external href={recentCommit?.url}>
+              <LinkWithIcon href={recentCommit?.url}>
                 <span>{recentCommit?.sha}</span>
               </LinkWithIcon>
               <div className="bodysmall">{recentCommit?.message}</div>
