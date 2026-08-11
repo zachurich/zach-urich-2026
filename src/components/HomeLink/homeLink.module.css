@@ -1,0 +1,12 @@
+.homeLink {
+  display: block;
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+  .homeLink {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}

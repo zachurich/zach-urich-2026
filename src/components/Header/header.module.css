@@ -23,6 +23,12 @@
   gap: var(--sidebar-width);
 }
 
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
 .siteTitle {
   color: var(--brand);
   font-size: var(--font-size-xxl);

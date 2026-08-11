@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Page } from "../../../components/Page/Page";
-import posts from "../../../lib/posts";
-import { PostContent } from "../../../components/PostContent/PostContent";
-import { MDXComponents } from "mdx/types";
-import { HeadingAnchor } from "../../../components/HeadingAnchor/HeadingAnchor";
-import { BackLink } from "../../../components/BackLink/BackLink";
-import { Box } from "../../../components/Box/Box";
-import { CodeBlock } from "../../../components/CodeBlock/CodeBlock";
-import { LinkWithIcon } from "../../../components/LinkWithIcon/LinkWithIcon";
+import { Page } from "@/components/Page/Page";
+import { Cta } from "@/components/Cta/Cta";
+import posts from "@/lib/posts";
+import { PostContent } from "@/components/PostContent/PostContent";
+import type { MDXComponents } from "mdx/types";
+import { HeadingAnchor } from "@/components/HeadingAnchor/HeadingAnchor";
+import { BackLink } from "@/components/BackLink/BackLink";
+import { Box } from "@/components/Box/Box";
+import { CodeBlock } from "@/components/CodeBlock/CodeBlock";
+import { LinkWithIcon } from "@/components/LinkWithIcon/LinkWithIcon";
 
 export function generateStaticParams() {
   return posts.getPostSlugs().map((slug) => ({ slug }));
@@ -63,9 +64,8 @@ export default async function PostPage({
       <PostContent title={title} date={formattedDate}>
         <Content components={overrideComponents} />
         <Box tagType="article">
-          <div className="heading3 s-b-sm">Read next</div>
+          <div className="heading3 s-b-xxs">Read next</div>
           <LinkWithIcon href={"/writing/" + nextPost?.slug}>
-            {/* <span className="body s-r-xs">Read Next: </span> */}
             {nextPost?.title}
           </LinkWithIcon>
         </Box>

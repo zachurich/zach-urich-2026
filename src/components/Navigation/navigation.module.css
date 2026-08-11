@@ -7,12 +7,6 @@
   gap: var(--spacing-xl);
 }
 
-.siteTitle {
-  display: block;
-  margin-top: var(--spacing-lg);
-  margin-bottom: var(--spacing-lg);
-}
-
 .navigationList {
   display: flex;
   flex-direction: column;

@@ -6,6 +6,8 @@ import styles from "./navigation.module.css";
 import classNames from "classnames";
 import { usePathname } from "next/navigation";
 import { ExternalLink } from "lucide-react";
+import { useIsMobile } from "@/hooks/useIsMobile";
+import { HomeLink } from "@/components/HomeLink/HomeLink";
 
 type Props = {
   tagType?: "aside" | "div";
@@ -68,12 +70,14 @@ const Nav = ({ internal }: { internal?: boolean }) => {
 
 export const Navigation = ({ tagType = "div" }: Props) => {
   const Tag = tagType;
+  const isMobile = useIsMobile();
+  if (isMobile) {
+    return null;
+  }
   return (
     <Tag className={styles.navigation}>
       <section id="primary-navigation">
-        <Link href="/" className={styles.siteTitle}>
-          <span className="heading1 brand">Z</span>
-        </Link>
+        <HomeLink />
         <nav className={styles.navigationList}>
           <Nav internal />
         </nav>

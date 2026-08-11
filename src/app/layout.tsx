@@ -26,11 +26,7 @@ export default async function RootLayout({
   const headersList = await headers();
   const serverTheme = getServerThemeFromCookie(headersList.get("cookie"));
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      data-theme={serverTheme}
-    >
+    <html lang="en" suppressHydrationWarning data-theme={serverTheme}>
       <body className={primaryFont.className}>
         <ThemeProvider initialTheme={serverTheme}>
           <Header />
