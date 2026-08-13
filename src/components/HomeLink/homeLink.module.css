@@ -6,7 +6,7 @@
   gap: var(--spacing-xs);
   margin-top: var(--spacing-lg);
   margin-bottom: var(--spacing-lg);
-  padding: var(--spacing-xs) var(--spacing-sm);
+  padding: var(--spacing-xxs) var(--spacing-sm);
   /* padding-left: 0; */
   background-color: var(--background-variant);
   box-shadow: var(--shadow-sm);
@@ -15,10 +15,10 @@
 }
 
 .avatar {
-  width: 25px;
-  height: 25px;
-  border-radius: var(--border-radius-md);
-  background-color: white;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--brand-3);
 }
 
 .homeLink img {
