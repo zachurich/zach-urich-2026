@@ -8,7 +8,14 @@ import { useEffect } from "react";
 import { HomeLink } from "@/components/HomeLink/HomeLink";
 import { useMobileNav } from "@/contexts/MobileNav/hooks";
 
-export const Header = () => {
+const ICON_SIZE = 24;
+
+type Props = {
+  avatarUrl?: string;
+  handle?: string;
+};
+
+export const Header = ({ avatarUrl, handle }: Props) => {
   const theme = useTheme();
   const mobileNav = useMobileNav();
 
@@ -33,12 +40,16 @@ export const Header = () => {
     <header className={styles.header}>
       <div className={styles.left}>
         <div className={styles.mobileHomeLink}>
-          <HomeLink />
+          <HomeLink avatarUrl={avatarUrl} handle={handle} />
         </div>
       </div>
       <div className={styles.right}>
         <Button onClick={theme.toggleTheme} variant="icon">
-          {theme.theme === "dark" ? <SunDim size={20} /> : <Moon size={20} />}
+          {theme.theme === "dark" ? (
+            <SunDim size={ICON_SIZE} />
+          ) : (
+            <Moon size={ICON_SIZE} />
+          )}
         </Button>
         <Button
           onClick={mobileNav.toggle}
@@ -47,7 +58,11 @@ export const Header = () => {
           aria-label={mobileNav.isOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileNav.isOpen}
         >
-          {mobileNav.isOpen ? <X size={20} /> : <Menu size={20} />}
+          {mobileNav.isOpen ? (
+            <X size={ICON_SIZE} />
+          ) : (
+            <Menu size={ICON_SIZE} />
+          )}
         </Button>
       </div>
     </header>

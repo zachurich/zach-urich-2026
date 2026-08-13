@@ -3,11 +3,4 @@
   width: 100%;
   margin: 0 auto;
   padding: var(--spacing-lg);
-  /* padding-right: var(--spacing-md); */
-}
-
-@media screen and (min-width: 768px) {
-  .container {
-    margin-left: 18%;
-  }
 }

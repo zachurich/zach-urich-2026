@@ -41,7 +41,7 @@ export const routes: Route[] = [
   },
   {
     name: "bluesky",
-    path: "https://bsky.app/profile/zachurich.bsky.social",
+    path: "https://bsky.app/profile/zachurich.com",
     external: true,
   },
   {

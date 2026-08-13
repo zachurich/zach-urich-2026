@@ -1,7 +1,44 @@
 .homeLink {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: var(--spacing-xs);
   margin-top: var(--spacing-lg);
   margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  /* padding-left: 0; */
+  background-color: var(--background-variant);
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+}
+
+.avatar {
+  width: 25px;
+  height: 25px;
+  border-radius: var(--border-radius-md);
+  background-color: white;
+}
+
+.homeLink img {
+  max-width: 25px;
+  height: 25px;
+  /* border-radius: var(--border-radius-md); */
+}
+
+.homeLink span {
+  /* font-family: var(--font-family-secondary); */
+  font-size: var(--font-size-base);
+  letter-spacing: 1.75px;
+  font-weight: 700;
+  /* font-style: italic; */
+  /* text-transform: uppercase; */
+  /* color: var(--primary-text-color); */
+}
+
+.homeLink {
+  text-decoration: none;
 }
 
 @media (max-width: 768px) {

@@ -13,6 +13,8 @@ import { FadeIn } from "@/components/FadeIn/FadeIn";
 
 type Props = {
   tagType?: "aside" | "div";
+  avatarUrl?: string;
+  handle?: string;
 };
 
 const colorList = [
@@ -74,7 +76,7 @@ const Nav = ({ internal }: { internal?: boolean }) => {
   });
 };
 
-export const Navigation = ({ tagType = "div" }: Props) => {
+export const Navigation = ({ tagType = "div", avatarUrl, handle }: Props) => {
   const Tag = tagType;
   const pathname = usePathname();
   const mobileNav = useMobileNav();
@@ -94,7 +96,7 @@ export const Navigation = ({ tagType = "div" }: Props) => {
       >
         <section id="primary-navigation">
           <div className={styles.desktopHomeLink}>
-            <HomeLink />
+            <HomeLink avatarUrl={avatarUrl} handle={handle} />
           </div>
           <nav className={styles.navigationList}>
             <Nav

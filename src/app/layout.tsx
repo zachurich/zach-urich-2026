@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
+import { Outfit, Courier_Prime } from "next/font/google";
 import { ThemeProvider } from "@/contexts/Theme/ThemeProvider";
 import { MobileNavProvider } from "@/contexts/MobileNav/MobileNavProvider";
 import "./globals.css";
@@ -7,11 +7,20 @@ import { Header } from "../components/Header/Header";
 import { Navigation } from "../components/Navigation/Navigation";
 import { SiteContent } from "../components/SiteContent/SiteContent";
 import { getServerThemeFromCookie } from "../lib/theme";
+import { getAtprotoProfile } from "../lib/atproto";
 import { headers } from "next/headers";
+import classNames from "classnames";
 
 const primaryFont = Outfit({
-  weight: ["300", "400", "500", "600"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
+  variable: "--font-family-primary",
+});
+
+const secondaryFont = Courier_Prime({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-family-secondary",
 });
 
 export const metadata: Metadata = {
@@ -26,14 +35,27 @@ export default async function RootLayout({
 }>) {
   const headersList = await headers();
   const serverTheme = getServerThemeFromCookie(headersList.get("cookie"));
+  const atprotoProfile = await getAtprotoProfile();
   return (
-    <html lang="en" suppressHydrationWarning data-theme={serverTheme}>
-      <body className={primaryFont.className}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      data-theme={serverTheme}
+      className={classNames(primaryFont.variable, secondaryFont.variable)}
+    >
+      <body>
         <ThemeProvider initialTheme={serverTheme}>
           <MobileNavProvider>
-            <Header />
+            <Header
+              avatarUrl={atprotoProfile?.avatarUrl}
+              handle={atprotoProfile?.handle}
+            />
             <SiteContent>
-              <Navigation tagType="aside" />
+              <Navigation
+                tagType="aside"
+                avatarUrl={atprotoProfile?.avatarUrl}
+                handle={atprotoProfile?.handle}
+              />
               {children}
             </SiteContent>
           </MobileNavProvider>

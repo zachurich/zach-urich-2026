@@ -5,18 +5,11 @@
   width: 100%;
   height: var(--header-height);
   z-index: 100;
-  padding: 0 var(--spacing-lg);
+  padding: 0 var(--spacing-base) 0 var(--spacing-lg);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid transparent;
-  transition: backdrop-filter 0.2s ease;
   /* border-bottom 0.3s ease; */
-}
-
-.header.scrolled {
-  backdrop-filter: var(--blur);
-  /* border-bottom: var(--border-primary); */
 }
 
 .left {
@@ -28,7 +21,7 @@
 .right {
   display: flex;
   align-items: center;
-  gap: var(--spacing-xs);
+  gap: var(--spacing-xxs);
 }
 
 .siteTitle {
@@ -46,6 +39,11 @@ button.mobileMenuButton {
 }
 
 @media (max-width: 768px) {
+  .header {
+    backdrop-filter: var(--blur);
+    border-bottom: var(--border-primary);
+  }
+
   .mobileHomeLink {
     display: flex;
   }
