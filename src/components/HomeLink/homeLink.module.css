@@ -1,24 +1,32 @@
 .homeLink {
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: row;
-  gap: var(--spacing-xs);
+  gap: var(--spacing-base);
   margin-top: var(--spacing-lg);
   margin-bottom: var(--spacing-lg);
-  padding: var(--spacing-xxs) var(--spacing-sm);
-  /* padding-left: 0; */
-  background-color: var(--background-variant);
+  /* padding: var(--spacing-xxs) var(--spacing-sm); */
+  padding-left: 0;
   box-shadow: var(--shadow-sm);
   border-radius: var(--border-radius-lg);
   text-align: center;
 }
 
 .avatar {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
+  position: relative;
+}
+
+.onlineIndicator {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: var(--brand-3);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  /* box-shadow: 0 0 0 var(--spacing-xxs) var(--brand-3); */
 }
 
 .homeLink img {
@@ -30,7 +38,7 @@
 .homeLink span {
   /* font-family: var(--font-family-secondary); */
   font-size: var(--font-size-base);
-  letter-spacing: 1.75px;
+  letter-spacing: 1.5px;
   font-weight: 700;
   /* font-style: italic; */
   /* text-transform: uppercase; */

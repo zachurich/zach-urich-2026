@@ -19,6 +19,12 @@
   --color-tertiary-shade-1: #005c00;
   --color-tertiary-shade-2: #003200;
 
+  --color-quaternary-tint-1: #e4cb93;
+  --color-quaternary-tint-2: #b78900;
+  --color-quaternary: #c89600;
+  --color-quaternary-shade-1: #6b3c00;
+  --color-quaternary-shade-2: #401100;
+
   --color-neutral: #fdf4d3;
   --color-neutral-50: #f8f5eb;
   --color-neutral-100: #eae8de;
@@ -33,7 +39,8 @@
   --color-neutral-950: #1a1608;
 
   --brand: var(--color-primary-shade-1);
-  --brand-variant: var(--color-primary-tint-2);
+  --brand-variant: var(--color-secondary);
+  --brand-variant-2: var(--color-quaternary);
   --brand-2: var(--color-secondary);
   --brand-3: var(--color-tertiary);
 
@@ -110,7 +117,7 @@
   --secondary-text-color: var(--foreground-variant);
 
   /* -- Layout -- */
-  --sidebar-width: calc(var(--spacing-md) * 8);
+  --sidebar-width: calc(var(--spacing-md) * 10);
   --header-height: calc(var(--spacing-xxxxl) + var(--spacing-xs));
 }
 
@@ -131,15 +138,16 @@
 }
 
 :root[data-theme="dark"] {
-  --brand: var(--color-secondary-tint-2);
-  --brand-variant: var(--color-secondary-tint-1);
-  --background: #1e183b;
-  --background-variant: var(--color-neutral-900);
+  --brand: var(--color-primary-tint-2);
+  --brand-variant: var(--color-quaternary);
+  --brand-variant-2: var(--color-secondary-tint-2);
+  --background: var(--color-neutral-900);
+  --background-variant: var(--color-neutral-950);
 
   --foreground: var(--color-neutral);
   --foreground-variant: var(--color-neutral-300);
 
-  --border-primary: 1px solid #161229;
+  --border-primary: 1px solid var(--color-neutral-950);
   --border-secondary: 2px solid var(--color-neutral-600);
 }
 
@@ -241,7 +249,14 @@ a,
 
 a:hover,
 .link:hover {
-  text-decoration-color: var(--brand-variant);
+  text-decoration: underline;
+  text-decoration-color: var(--brand-variant-2);
+  color: var(--brand-variant);
+}
+
+a:hover svg,
+.link:hover svg {
+  stroke: var(--brand-variant-2);
 }
 
 .link2 {
@@ -301,6 +316,13 @@ h3,
 code,
 pre {
   font-size: var(--font-size-sm);
+  max-width: 100%;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ─── Spacing Utilities ──────────────────────────────────────────────────────── */

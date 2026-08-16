@@ -2,5 +2,6 @@
   display: flex;
   flex: 1;
   padding-top: calc(var(--spacing-base) * 4);
+  max-width: 100%;
   /* Add your styles here */
 }

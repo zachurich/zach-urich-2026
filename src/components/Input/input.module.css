@@ -1,3 +1,16 @@
 .input {
   /* Add your styles here */
+  display: flex;
+  flex-direction: column;
+}
+
+.description {
+  margin-bottom: var(--spacing-xs);
+}
+
+.input input {
+  background-color: var(--background);
+  border: var(--border-primary);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xs) var(--spacing-sm);
 }

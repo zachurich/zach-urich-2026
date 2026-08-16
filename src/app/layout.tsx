@@ -10,6 +10,7 @@ import { getServerThemeFromCookie } from "../lib/theme";
 import { getAtprotoProfile } from "../lib/atproto";
 import { headers } from "next/headers";
 import classNames from "classnames";
+import { Footer } from "@/components/Footer/Footer";
 
 const primaryFont = Outfit({
   weight: ["300", "400", "500", "600", "700", "800", "900"],
@@ -58,6 +59,7 @@ export default async function RootLayout({
               />
               {children}
             </SiteContent>
+            <Footer />
           </MobileNavProvider>
         </ThemeProvider>
       </body>

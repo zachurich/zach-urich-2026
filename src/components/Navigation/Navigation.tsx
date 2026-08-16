@@ -10,6 +10,8 @@ import { ExternalLink } from "lucide-react";
 import { HomeLink } from "@/components/HomeLink/HomeLink";
 import { useMobileNav } from "@/contexts/MobileNav/hooks";
 import { FadeIn } from "@/components/FadeIn/FadeIn";
+import { Theme } from "@/lib/theme";
+import { useTheme } from "@/contexts/Theme/hooks";
 
 type Props = {
   tagType?: "aside" | "div";
@@ -17,11 +19,10 @@ type Props = {
   handle?: string;
 };
 
-const colorList = [
-  "var(--color-primary)",
-  "var(--color-secondary)",
-  "var(--color-tertiary)",
-];
+const COLOR_MAP: Record<Theme, string[]> = {
+  light: [styles.secondary],
+  dark: [styles.quaternary],
+};
 
 const getExternalRoutes = () => routes.filter((route) => route.external);
 const getInternalRoutes = () =>
@@ -29,7 +30,9 @@ const getInternalRoutes = () =>
 
 const Nav = ({ internal }: { internal?: boolean }) => {
   const pathname = usePathname();
+  const { theme } = useTheme();
   const routeList = internal ? getInternalRoutes() : getExternalRoutes();
+  const colorList = COLOR_MAP[theme];
 
   const getIsActive = (routePath: string) => {
     if (routePath.length === 1) {
@@ -64,11 +67,7 @@ const Nav = ({ internal }: { internal?: boolean }) => {
       </FadeIn>
     ) : (
       <FadeIn key={route.path} delay={0.1 + i * 0.05}>
-        <Link
-          key={route.path}
-          {...common}
-          style={{ stroke: colorList[i % colorList.length] }}
-        >
+        <Link key={route.path} {...common}>
           <Icon size={18} /> {route.name}
         </Link>
       </FadeIn>
@@ -94,31 +93,36 @@ export const Navigation = ({ tagType = "div", avatarUrl, handle }: Props) => {
           [styles.mobileOpen]: mobileNav.isOpen,
         })}
       >
-        <section id="primary-navigation">
-          <div className={styles.desktopHomeLink}>
-            <HomeLink avatarUrl={avatarUrl} handle={handle} />
-          </div>
-          <nav className={styles.navigationList}>
-            <Nav
-              key={mobileNav.isOpen ? "internalOpen" : "internalClosed"}
-              internal
-            />
-          </nav>
-        </section>
+        <div className={styles.navigationInner}>
+          <section id="primary-navigation">
+            <div className={styles.desktopHomeLink}>
+              <HomeLink avatarUrl={avatarUrl} handle={handle} />
+            </div>
+            <nav className={styles.navigationList}>
+              <Nav
+                key={mobileNav.isOpen ? "internalOpen" : "internalClosed"}
+                internal
+              />
+            </nav>
+          </section>
 
-        <section id="external-links">
-          <FadeIn
-            key={mobileNav.isOpen ? "headingOpen" : "headingClosed"}
-            delay={0.2}
-          >
-            <h2 className="heading3 body2">Links</h2>
-          </FadeIn>
-          <ul
-            className={classNames(styles.navigationList, styles.externalLinks)}
-          >
-            <Nav key={mobileNav.isOpen ? "externalOpen" : "externalClosed"} />
-          </ul>
-        </section>
+          <section id="external-links" className="s-t-xl">
+            <FadeIn
+              key={mobileNav.isOpen ? "headingOpen" : "headingClosed"}
+              delay={0.2}
+            >
+              <h2 className="heading3 body2">Links</h2>
+            </FadeIn>
+            <ul
+              className={classNames(
+                styles.navigationList,
+                styles.externalLinks,
+              )}
+            >
+              <Nav key={mobileNav.isOpen ? "externalOpen" : "externalClosed"} />
+            </ul>
+          </section>
+        </div>
       </Tag>
     </FadeIn>
   );

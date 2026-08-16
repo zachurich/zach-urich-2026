@@ -251,7 +251,7 @@ const getLatestUserCommits = ({
   limitPerRepo?: number;
   maxRepos?: number;
 }) =>
-  _fetchRepos(USERNAME, process.env.GH_TOKEN, `sort=updated&direction=desc`)
+  _fetchRepos(USERNAME, process.env.GH_TOKEN, `sort=updated&direction=asc`)
     .then((repos) =>
       Promise.all(
         repos.flatMap((repo) =>
@@ -278,7 +278,7 @@ const getLatestUserCommits = ({
     });
 
 const getLatestCommit = (): Promise<LatestCommit> =>
-  _fetchLatestCommit("zach-urich-2022", process.env.GH_TOKEN).catch((error) => {
+  _fetchLatestCommit("zach-urich-2026", process.env.GH_TOKEN).catch((error) => {
     console.error("Error fetching latest commit:", error);
     return {
       url: "",

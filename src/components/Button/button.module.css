@@ -35,7 +35,7 @@
 .secondary:hover {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
-  color: var(--background);
+  color: var(--color-neutral);
 }
 
 .error {

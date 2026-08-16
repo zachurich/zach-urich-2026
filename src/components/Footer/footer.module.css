@@ -1,0 +1,26 @@
+.footer {
+  padding: var(--spacing-lg) var(--spacing-base);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-top: var(--border-primary);
+}
+
+.footerBox {
+  margin-bottom: var(--spacing-base);
+}
+
+.footerBox form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+}
+
+.footerContent {
+  display: flex;
+
+  align-items: center;
+  gap: var(--spacing-xxs);
+}

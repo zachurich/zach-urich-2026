@@ -1,10 +1,26 @@
 .navigation {
   min-height: 100vh;
+  height: 100%;
   padding: 0 var(--spacing-base);
   border-right: var(--border-primary);
   display: flex;
   flex-direction: column;
   gap: var(--spacing-xl);
+  width: var(--sidebar-width);
+}
+
+.navigationInner {
+  position: fixed;
+}
+
+.secondary {
+  color: var(--color-secondary);
+  stroke: var(--color-secondary);
+}
+
+.quaternary {
+  color: var(--color-quaternary);
+  stroke: var(--color-quaternary);
 }
 
 @media (max-width: 768px) {
@@ -66,13 +82,9 @@
 }
 
 .link.active {
-  color: var(--brand);
+  color: var(--brand-variant);
 }
 
-.link:not(.active) svg {
-  stroke: var(--foreground);
-}
-
-.link:hover svg {
-  stroke: inherit;
+.link.active svg {
+  stroke: var(--brand-variant-2);
 }

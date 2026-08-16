@@ -7,6 +7,8 @@ type Props = {
   type?: HTMLInputElement["type"];
   value?: string;
   placeholder?: string;
+  label?: string;
+  description?: string;
   id?: string;
   name?: string;
 };
@@ -16,13 +18,20 @@ export const Input = ({
   type = "text",
   value,
   placeholder,
+  label,
+  description,
   id,
   name,
 }: Props) => {
   const generatedId = useId();
   return (
     <div className={classNames(styles.input, className)}>
-      <label htmlFor={id ?? generatedId}>{placeholder}</label>
+      {description && (
+        <span className={classNames(styles.description, "body2")}>
+          {description}
+        </span>
+      )}
+      <label htmlFor={id ?? generatedId}>{label}</label>
       <input
         id={id ?? generatedId}
         name={name}
