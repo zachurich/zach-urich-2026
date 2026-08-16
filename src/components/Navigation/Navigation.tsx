@@ -10,8 +10,8 @@ import { ExternalLink } from "lucide-react";
 import { HomeLink } from "@/components/HomeLink/HomeLink";
 import { useMobileNav } from "@/contexts/MobileNav/hooks";
 import { FadeIn } from "@/components/FadeIn/FadeIn";
-import { Theme } from "@/lib/theme";
-import { useTheme } from "@/contexts/Theme/hooks";
+// import { Theme } from "@/lib/theme";
+// import { useTheme } from "@/contexts/Theme/hooks";
 
 type Props = {
   tagType?: "aside" | "div";
@@ -19,10 +19,10 @@ type Props = {
   handle?: string;
 };
 
-const COLOR_MAP: Record<Theme, string[]> = {
-  light: [styles.secondary],
-  dark: [styles.quaternary],
-};
+// const COLOR_MAP: Record<Theme, string[]> = {
+//   light: [styles.secondary],
+//   dark: [styles.quaternary],
+// };
 
 const getExternalRoutes = () => routes.filter((route) => route.external);
 const getInternalRoutes = () =>
@@ -30,9 +30,9 @@ const getInternalRoutes = () =>
 
 const Nav = ({ internal }: { internal?: boolean }) => {
   const pathname = usePathname();
-  const { theme } = useTheme();
+  // const { theme } = useTheme();
   const routeList = internal ? getInternalRoutes() : getExternalRoutes();
-  const colorList = COLOR_MAP[theme];
+  // const colorList = COLOR_MAP[theme];
 
   const getIsActive = (routePath: string) => {
     if (routePath.length === 1) {

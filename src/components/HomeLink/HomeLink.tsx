@@ -1,14 +1,16 @@
 import styles from "./homeLink.module.css";
 import Link from "next/link";
-import Image from "next/image";
-import { motion } from "motion/react";
 
 type Props = {
   avatarUrl?: string;
   handle?: string;
 };
 
-export const HomeLink = ({ avatarUrl, handle = "zachurich.com" }: Props) => {
+export const HomeLink = (
+  {
+    // avatarUrl, handle = "zachurich.com"
+  }: Props,
+) => {
   return (
     <Link href="/" className={styles.homeLink}>
       {/* <div className={styles.avatar}>

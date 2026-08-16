@@ -6,11 +6,10 @@ import { Box } from "@/components/Box/Box";
 import { Button } from "@/components/Button/Button";
 
 type Props = {
-  children?: React.ReactNode;
   className?: string;
 };
 
-export const Footer = ({ children, className }: Props) => {
+export const Footer = ({ className }: Props) => {
   return (
     <footer className={classNames(styles.footer, className)}>
       <Box className={classNames(styles.footerBox)}>
