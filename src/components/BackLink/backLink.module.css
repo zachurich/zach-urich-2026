@@ -1,5 +1,5 @@
 .link {
   display: flex;
   align-items: center;
-  gap: var(--spacing-xxs);
+  gap: var(--spacing-1xs);
 }

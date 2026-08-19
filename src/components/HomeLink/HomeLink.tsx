@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./homeLink.module.css";
 import Link from "next/link";
 
@@ -12,7 +14,17 @@ export const HomeLink = (
   }: Props,
 ) => {
   return (
-    <Link href="/" className={styles.homeLink}>
+    <Link
+      href="/"
+      className={styles.homeLink}
+      onClick={() => {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "smooth",
+        });
+      }}
+    >
       {/* <div className={styles.avatar}>
         <motion.div
           style={{

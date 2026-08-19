@@ -5,14 +5,13 @@ import styles from "./list.module.css";
 type Props = {
   className?: string;
   children?: React.ReactNode;
-  items: React.ReactNode[];
 };
 
-export const List = ({ className, items }: Props) => {
+export const List = ({ className, children }: Props) => {
   return (
     <div className={classNames(styles.list, className)}>
       <ul className={styles.listItems}>
-        {items.map((child, index) => (
+        {React.Children.map(children, (child, index) => (
           <li key={index} className={styles.listItem}>
             {child}
           </li>

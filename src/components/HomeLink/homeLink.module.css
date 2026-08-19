@@ -5,7 +5,7 @@
   gap: var(--spacing-base);
   margin-top: var(--spacing-lg);
   margin-bottom: var(--spacing-lg);
-  /* padding: var(--spacing-xxs) var(--spacing-sm); */
+  /* padding: var(--spacing-1xs) var(--spacing-sm); */
   padding-left: 0;
   box-shadow: var(--shadow-sm);
   border-radius: var(--border-radius-lg);
@@ -26,7 +26,7 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  /* box-shadow: 0 0 0 var(--spacing-xxs) var(--brand-3); */
+  /* box-shadow: 0 0 0 var(--spacing-1xs) var(--brand-3); */
 }
 
 .homeLink img {
@@ -37,7 +37,7 @@
 
 .homeLink span {
   /* font-family: var(--font-family-secondary); */
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-lg);
   letter-spacing: 1.5px;
   font-weight: 700;
   /* font-style: italic; */

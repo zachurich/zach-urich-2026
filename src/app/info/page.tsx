@@ -1,25 +1,28 @@
-import pages from "@/lib/pages";
-import { Page } from "../../components/Page/Page";
-import { Section } from "../../components/Section/Section";
-import { PostContent } from "../../components/PostContent/PostContent";
+import { Page } from "@/components/Page/Page";
+import { Section } from "@/components/Section/Section";
 
-import { FadeIn } from "../../components/FadeIn/FadeIn";
+import { FadeIn } from "@/components/FadeIn/FadeIn";
 import github from "@/lib/github";
+import { AnimateWord } from "@/components/AnimateWord/AnimateWord";
 import { Box } from "@/components/Box/Box";
 import { LineItem } from "@/components/LineItem/LineItem";
 import { LinkWithIcon } from "@/components/LinkWithIcon/LinkWithIcon";
 import { List } from "@/components/List/List";
-export const metadata = { title: "About" };
+import visitor from "@/lib/visitor";
+import { Metadata } from "next";
+
+export const metadata: Metadata = { title: "Info" };
 
 export default async function AboutPage() {
   const recentCommit = await github.getLatestCommit();
+  const visitorCount = await visitor.getVisitorCount();
   return (
     <Page>
       <FadeIn>
         <h1>
           Site{" "}
           <FadeIn delay={0.25} tagType="span">
-            <em>info</em>
+            <AnimateWord>info</AnimateWord>
           </FadeIn>
         </h1>
       </FadeIn>
@@ -28,36 +31,36 @@ export default async function AboutPage() {
         <Section>
           <h2 className="s-b-sm">Tech Stack</h2>
           <Box className="s-b-sm">
-            <List
-              items={[
-                <LineItem key="react">
-                  <LinkWithIcon href="https://reactjs.org/">
-                    React
-                  </LinkWithIcon>
-                  <span className="bodysmall">UI Library</span>
-                </LineItem>,
-                <LineItem key="nextjs">
-                  <LinkWithIcon href="https://nextjs.org/">
-                    Next.js
-                  </LinkWithIcon>
-                  <span className="bodysmall">Framework</span>
-                </LineItem>,
-                <LineItem key="typescript">
-                  <LinkWithIcon href="https://www.typescriptlang.org/">
-                    TypeScript
-                  </LinkWithIcon>
-                  <span className="bodysmall">Programming Language</span>
-                </LineItem>,
-                <LineItem key="backpack">
-                  <LinkWithIcon href="https://github.com/zachurich/backpack">
-                    Backpack
-                  </LinkWithIcon>
-                  <span className="bodysmall">
-                    My subjective starter bag of components, themeing, & utils.
-                  </span>
-                </LineItem>,
-              ]}
-            />
+            <List>
+              <LineItem key="react">
+                <LinkWithIcon href="https://reactjs.org/">React</LinkWithIcon>
+                <span className="bodysmall">UI Library</span>
+              </LineItem>
+              <LineItem key="nextjs">
+                <LinkWithIcon href="https://nextjs.org/">Next.js</LinkWithIcon>
+                <span className="bodysmall">Framework</span>
+              </LineItem>
+              <LineItem key="typescript">
+                <LinkWithIcon href="https://www.typescriptlang.org/">
+                  TypeScript
+                </LinkWithIcon>
+                <span className="bodysmall">Programming Language</span>
+              </LineItem>
+              <LineItem key="mongodb">
+                <LinkWithIcon href="https://github.com/mongodb/mongo">
+                  MongoDB
+                </LinkWithIcon>
+                <span className="bodysmall">Database</span>
+              </LineItem>
+              <LineItem key="backpack">
+                <LinkWithIcon href="https://github.com/zachurich/backpack">
+                  Backpack
+                </LinkWithIcon>
+                <span className="bodysmall">
+                  My subjective starter bag of components, themeing, & utils.
+                </span>
+              </LineItem>
+            </List>
           </Box>
         </Section>
       </FadeIn>
@@ -76,6 +79,12 @@ export default async function AboutPage() {
               <div className="bodysmall">{recentCommit?.message}</div>
             </LineItem>
           </Box>
+        </Section>
+      </FadeIn>
+      <FadeIn delay={0.55}>
+        <Section>
+          <h2 className="s-b-sm">Visitor Count</h2>
+          <Box>{visitorCount}</Box>
         </Section>
       </FadeIn>
     </Page>

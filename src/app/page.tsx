@@ -8,6 +8,7 @@ import github from "@/lib/github";
 import { Box } from "@/components/Box/Box";
 import { LineItem } from "@/components/LineItem/LineItem";
 import { Cta } from "@/components/Cta/Cta";
+import { AnimateWord } from "@/components/AnimateWord/AnimateWord";
 
 export const metadata = { title: "Home" };
 
@@ -23,10 +24,7 @@ export default async function Home() {
     <Page>
       <FadeIn>
         <h1>
-          Hi, I&apos;m{" "}
-          <FadeIn delay={0.25} tagType="span">
-            <em>Zach</em>
-          </FadeIn>
+          Hi, I&apos;m <AnimateWord>Zach</AnimateWord>
         </h1>
       </FadeIn>
       <FadeIn delay={0.35}>
@@ -56,25 +54,24 @@ export default async function Home() {
       </Section>
       <Section>
         <FadeIn delay={0.65}>
-          <h2 className="s-b-sm">Gitub Activity log</h2>
+          <h2 className="s-b-sm">Activity log</h2>
         </FadeIn>
         <FadeIn delay={0.75}>
           <Box>
-            <List
-              items={commits.map((commit) => (
-                <>
-                  <LineItem key={commit.sha}>
-                    <a href={commit.url}>
-                      {commit.message.slice(0, 50)}
-                      <span className="bodysmall">
-                        ...[{commit.sha.slice(0, 7)}]
-                      </span>
-                    </a>
-                    <p className="bodysmall s-t-sm">{commit.date}</p>
-                  </LineItem>
-                </>
+            <List>
+              {commits.map((commit) => (
+                <LineItem key={commit.sha}>
+                  <LinkWithIcon href={commit.url}>
+                    {commit.message.slice(0, 50)}
+                    <span className="bodysmall">
+                      {" "}
+                      [{commit.sha.slice(0, 7)}]
+                    </span>
+                  </LinkWithIcon>
+                  <p className="bodysmall s-t-sm">{commit.date}</p>
+                </LineItem>
               ))}
-            />
+            </List>
           </Box>
         </FadeIn>
         <FadeIn delay={0.55 + recentPosts.length * 0.15}>

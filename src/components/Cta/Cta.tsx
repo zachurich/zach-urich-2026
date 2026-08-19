@@ -20,7 +20,7 @@ export const Cta = ({ children, className, href }: Props) => {
       rel={external ? "noopener noreferrer" : undefined}
     >
       <Button
-        icon={external ? <ArrowUpRight size={16} /> : <ArrowRight size={16} />}
+        icon={external ? <ArrowUpRight size={18} /> : <ArrowRight size={18} />}
         iconPlacement="right"
         tagType="div"
       >

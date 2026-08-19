@@ -8,8 +8,6 @@ type Props = {
 
 export const LineItem = ({ children, className }: Props) => {
   return (
-    <div className={classNames(styles.lineItem, className)}>
-      {children}
-    </div>
+    <div className={classNames(styles.lineItem, className)}>{children}</div>
   );
 };

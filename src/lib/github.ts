@@ -195,7 +195,7 @@ const _fetchLatestCommits = async (
     headers["Authorization"] = `token ${token}`;
   }
 
-  const response = await fetch(url, { headers });
+  const response = await fetch(url, { headers, cache: "no-store" });
   if (!response.ok) {
     throw new Error(
       `GitHub API error: ${response.status} ${response.statusText}`,
@@ -270,7 +270,12 @@ const getLatestUserCommits = ({
         .catch((e) => {
           console.error("Error fetching latest user commits:", e);
           return [];
-        }),
+        })
+        .then((all) =>
+          [...all].sort(
+            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+          ),
+        ),
     )
     .catch((e) => {
       console.error("Error fetching latest user commits:", e);

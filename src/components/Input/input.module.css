@@ -12,5 +12,6 @@
   background-color: var(--background);
   border: var(--border-primary);
   border-radius: var(--border-radius-lg);
-  padding: var(--spacing-xs) var(--spacing-sm);
+  padding: var(--spacing-1xs) var(--spacing-sm);
+  font-size: var(--font-size-md);
 }

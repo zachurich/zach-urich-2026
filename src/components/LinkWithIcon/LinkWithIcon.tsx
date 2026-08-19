@@ -7,18 +7,31 @@ type Props = {
   className?: string;
   children?: React.ReactNode;
   href: string;
+  variant?: "default" | "inline";
 };
 
-export const LinkWithIcon = ({ children, href, className }: Props) => {
+export const LinkWithIcon = ({
+  children,
+  href,
+  className,
+  variant = "default",
+}: Props) => {
   const external = href.startsWith("http");
+  const iconSize = variant === "inline" ? 16 : 20;
   return (
     <Link
-      className={classNames(styles.linkWithIcon, className)}
+      className={classNames(styles.linkWithIcon, className, {
+        [styles.inline]: variant === "inline",
+      })}
       href={href}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     >
       <div className="link">{children}</div>
-      {external ? <ArrowUpRight size={20} /> : <ArrowRight size={20} />}
+      {external ? (
+        <ArrowUpRight size={iconSize} />
+      ) : (
+        <ArrowRight size={iconSize} />
+      )}
     </Link>
   );
 };

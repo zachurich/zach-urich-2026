@@ -19,7 +19,7 @@
   font-weight: var(--font-weight-medium);
   color: var(--color-text-secondary);
   background-color: var(--background-variant);
-  padding: var(--spacing-xxs) var(--spacing-sm);
+  padding: var(--spacing-1xs) var(--spacing-sm);
   display: inline-block;
   border-radius: var(--border-radius-sm);
 }

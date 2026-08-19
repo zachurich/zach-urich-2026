@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { routes } from "./constants";
+import { getExternalRoutes, getInternalRoutes } from "./helpers";
 import styles from "./navigation.module.css";
 import classNames from "classnames";
 import { usePathname } from "next/navigation";
@@ -23,10 +23,6 @@ type Props = {
 //   light: [styles.secondary],
 //   dark: [styles.quaternary],
 // };
-
-const getExternalRoutes = () => routes.filter((route) => route.external);
-const getInternalRoutes = () =>
-  routes.filter((route) => !route.external && route.underConstruction !== true);
 
 const Nav = ({ internal }: { internal?: boolean }) => {
   const pathname = usePathname();

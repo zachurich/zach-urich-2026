@@ -21,7 +21,7 @@ export const routes: Route[] = [
   { name: "Home", path: "/", icon: Home },
   { name: "About", path: "/about", icon: BookA },
   { name: "Projects", path: "/projects", icon: Code2, underConstruction: true },
-  { name: "Writing", path: "/writing", icon: PenLineIcon },
+  { name: "Thoughts", path: "/writing", icon: PenLineIcon },
   { name: "Site Info", path: "/info", icon: Cog },
   {
     name: "Guestbook",

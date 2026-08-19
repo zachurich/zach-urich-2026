@@ -1,11 +1,15 @@
+import classNames from "classnames";
 import styles from "./container.module.css";
 
 type Props = {
   children?: React.ReactNode;
   tagType?: "div" | "main" | "section";
+  className?: string;
 };
 
-export const Container = ({ children, tagType = "div" }: Props) => {
+export const Container = ({ className, children, tagType = "div" }: Props) => {
   const Tag = tagType;
-  return <Tag className={styles.container}>{children}</Tag>;
+  return (
+    <Tag className={classNames(styles.container, className)}>{children}</Tag>
+  );
 };

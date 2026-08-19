@@ -4,3 +4,9 @@
   margin: 0 auto;
   padding: var(--spacing-lg);
 }
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: var(--spacing-base);
+  }
+}

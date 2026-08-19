@@ -2,7 +2,7 @@
   /* Add your styles here */
   display: flex;
   align-items: center;
-  gap: var(--spacing-xxs);
+  gap: var(--spacing-1xs);
   flex-direction: row;
 }
 

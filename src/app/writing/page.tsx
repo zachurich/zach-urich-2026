@@ -4,8 +4,10 @@ import { Section } from "../../components/Section/Section";
 import { Box } from "../../components/Box/Box";
 import { LinkWithIcon } from "../../components/LinkWithIcon/LinkWithIcon";
 import { FadeIn } from "@/components/FadeIn/FadeIn";
+import { Metadata } from "next";
+import { AnimateWord } from "@/components/AnimateWord/AnimateWord";
 
-export const metadata = { title: "Writing" };
+export const metadata: Metadata = { title: "Writing" };
 
 export default function WritingPage() {
   const allPosts = posts.getAllPosts();
@@ -13,14 +15,13 @@ export default function WritingPage() {
     <Page>
       <FadeIn>
         <h1>
-          Some shit I{" "}
-          <FadeIn delay={0.25} tagType="span">
-            <em>wrote</em>
-          </FadeIn>
+          <AnimateWord>Thoughts</AnimateWord>
         </h1>
       </FadeIn>
       <FadeIn delay={0.35}>
-        <h2 className="body2 heading2variant">read if you dare</h2>
+        <h2 className="body2 heading2variant">
+          semi-coherent writings on various topics
+        </h2>
       </FadeIn>
 
       <Section>

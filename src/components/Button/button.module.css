@@ -68,7 +68,7 @@
 .icon {
   border: none;
   border-radius: var(--border-radius-full);
-  padding: var(--spacing-xxs) var(--spacing-xs);
+  padding: var(--spacing-1xs) var(--spacing-xs);
   background-color: transparent;
   color: var(--foreground);
 }

@@ -8,6 +8,6 @@
   .lineItem {
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--spacing-xxs);
+    gap: var(--spacing-1xs);
   }
 }
