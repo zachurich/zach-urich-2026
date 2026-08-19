@@ -35,9 +35,11 @@ export const Footer = async ({ className }: Props) => {
               <div className="body2 emphasized s-b-xxs">site info</div>
               <List>
                 <div>updated {dateFromString(latestCommit.date)}</div>
-                <div>
-                  visitor count: <InlineBox>{visitorCount}</InlineBox>
-                </div>
+                {visitorCount !== null && (
+                  <div>
+                    visitor count: <InlineBox>{visitorCount}</InlineBox>
+                  </div>
+                )}
                 <LinkWithIcon variant="inline" href="/info">
                   more
                 </LinkWithIcon>

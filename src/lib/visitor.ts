@@ -6,27 +6,35 @@ export const getVistedCookie = (cookie: string | null | undefined) => {
 };
 
 const getVisitorCount = async () => {
-  await db();
-  const entries = await VisitorCount.findOne({
-    id: "visitor_count",
-  });
-  return entries?.count;
+  try {
+    await db();
+    const entries = await VisitorCount.findOne({
+      id: "visitor_count",
+    });
+    return entries?.count as number | null;
+  } catch {
+    return null;
+  }
 };
 
 const updateVisitorCount = async () => {
-  await db();
-  await VisitorCount.findOneAndUpdate(
-    {
-      id: "visitor_count",
-    },
-    {
-      $inc: { count: 1 },
-    },
-    {
-      returnDocument: "after",
-      upsert: true,
-    },
-  );
+  try {
+    await db();
+    await VisitorCount.findOneAndUpdate(
+      {
+        id: "visitor_count",
+      },
+      {
+        $inc: { count: 1 },
+      },
+      {
+        returnDocument: "after",
+        upsert: true,
+      },
+    );
+  } catch {
+    return Promise.resolve();
+  }
 };
 
 const visitor = {
