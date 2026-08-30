@@ -14,6 +14,10 @@
 
 .avatar {
   position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-xs);
+  align-items: center;
 }
 
 .onlineIndicator {
@@ -30,8 +34,7 @@
 }
 
 .homeLink img {
-  max-width: 25px;
-  height: 25px;
+  max-width: 90px;
   /* border-radius: var(--border-radius-md); */
 }
 
@@ -49,7 +52,7 @@
   text-decoration: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 950px) {
   .homeLink {
     margin-top: 0;
     margin-bottom: 0;

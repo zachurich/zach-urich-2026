@@ -4,6 +4,7 @@ import {
   Cog,
   Home,
   LucideProps,
+  Mail,
   PenLineIcon,
   UserPen,
 } from "lucide-react";
@@ -23,6 +24,7 @@ export const routes: Route[] = [
   { name: "Projects", path: "/projects", icon: Code2, underConstruction: true },
   { name: "Thoughts", path: "/writing", icon: PenLineIcon },
   { name: "Site Info", path: "/info", icon: Cog },
+  { name: "Contact", path: "/contact", icon: Mail },
   {
     name: "Guestbook",
     path: "/guest-book",

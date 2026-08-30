@@ -8,9 +8,9 @@ import github from "@/lib/github";
 import { Box } from "@/components/Box/Box";
 import { LineItem } from "@/components/LineItem/LineItem";
 import { Cta } from "@/components/Cta/Cta";
-import { AnimateWord } from "@/components/AnimateWord/AnimateWord";
+import { Metadata } from "next";
 
-export const metadata = { title: "Home" };
+export const metadata: Metadata = { title: "Home" };
 
 export default async function Home() {
   // const Content = await pages.getPageBySlug("home");
@@ -23,14 +23,13 @@ export default async function Home() {
   return (
     <Page>
       <FadeIn>
-        <h1>
-          Hi, I&apos;m <AnimateWord>Zach</AnimateWord>
-        </h1>
+        <h1>Welcome!</h1>
       </FadeIn>
       <FadeIn delay={0.35}>
         <div className="body2 heading2variant s-b-xxl">
-          i like to draw, play video games, and occasionally take pictures. i
-          also write code for a living.
+          {
+            "i'm Zach. i'm a software engineer with a knack for creativity. i like to draw, take pictures, and play video games"
+          }
         </div>
       </FadeIn>
       <Section className="s-b-xxl">

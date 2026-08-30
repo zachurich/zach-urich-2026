@@ -1,3 +1,5 @@
+"use client";
+
 import classNames from "classnames";
 import styles from "./input.module.css";
 import { useId } from "react";
@@ -11,6 +13,10 @@ type Props = {
   description?: string;
   id?: string;
   name?: string;
+  maxLength?: number;
+  minLength?: number;
+  required?: boolean;
+  variant?: "default" | "textarea" | "honeypot";
 };
 
 export const Input = ({
@@ -22,8 +28,27 @@ export const Input = ({
   description,
   id,
   name,
+  minLength,
+  maxLength,
+  required,
+  variant = "default",
 }: Props) => {
   const generatedId = useId();
+
+  if (variant === "honeypot") {
+    return (
+      <input
+        className={styles.hidden}
+        aria-hidden
+        tab-index="-1"
+        auto-complete="off"
+        placeholder="Your email"
+        type={type}
+      />
+    );
+  }
+
+  const Tag = variant === "default" ? "input" : "textarea";
   return (
     <div className={classNames(styles.input, className)}>
       {description && (
@@ -32,12 +57,16 @@ export const Input = ({
         </span>
       )}
       <label htmlFor={id ?? generatedId}>{label}</label>
-      <input
+      <Tag
         id={id ?? generatedId}
         name={name}
         type={type}
+        required={required}
         value={value}
         placeholder={placeholder}
+        // @ts-expect-error React shit
+        minlength={minLength}
+        maxlength={maxLength}
       />
     </div>
   );

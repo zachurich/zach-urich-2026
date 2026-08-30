@@ -19,3 +19,8 @@ export async function incrementVisitorCount() {
     });
   }
 }
+
+export async function getVisitorCount() {
+  const count = await visitor.getVisitorCount();
+  return count;
+}

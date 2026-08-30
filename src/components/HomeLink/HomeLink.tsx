@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import styles from "./homeLink.module.css";
 import Link from "next/link";
 
@@ -25,8 +26,8 @@ export const HomeLink = (
         });
       }}
     >
-      {/* <div className={styles.avatar}>
-        <motion.div
+      <div className={styles.avatar}>
+        {/*<motion.div
           style={{
             opacity: 1,
             boxShadow: "0 0 15px 10px var(--brand-3)",
@@ -40,11 +41,11 @@ export const HomeLink = (
             repeat: Infinity,
             repeatType: "loop",
           }}
-        /> */}
-      {/* <span className={styles.onlineIndicator} /> */}
-      {/* {avatarUrl && <Image src={avatarUrl} alt="" width={40} height={40} />} */}
-      <span className="heading1 brand">Zach Urich</span>
-      {/* </div> */}
+        />*/}
+        {/* <span className={styles.onlineIndicator} /> */}
+        <Image src={"/logo-thick.png"} alt="" width={40} height={40} />
+        <span className="heading1 brand">Zach Urich</span>
+      </div>
     </Link>
   );
 };

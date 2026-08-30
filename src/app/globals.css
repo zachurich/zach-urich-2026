@@ -58,6 +58,7 @@
   --font-weight-bold: 600;
 
   --spacing-base: var(--font-size-base);
+  --spacing-2xs: calc(var(--spacing-base) * 0.15);
   --spacing-1xs: calc(var(--spacing-base) * 0.25);
   --spacing-xs: calc(var(--spacing-base) * 0.5);
   --spacing-sm: calc(var(--spacing-base) * 0.75);
@@ -335,6 +336,36 @@ pre {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+form {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-direction: column;
+}
+
+.form-group {
+  display: flex;
+  gap: var(--spacing-base);
+  flex-direction: row;
+}
+
+.form-group * {
+  flex: 1;
+  height: 100%;
+}
+
+@media screen and (max-width: 950px) {
+  .form-group {
+    flex-direction: column;
+  }
 }
 
 /* ─── Spacing Utilities ──────────────────────────────────────────────────────── */

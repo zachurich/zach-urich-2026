@@ -76,15 +76,20 @@ export default async function AboutPage() {
               <LinkWithIcon href={recentCommit?.url}>
                 <span>{recentCommit?.sha}</span>
               </LinkWithIcon>
-              <div className="bodysmall">{recentCommit?.message}</div>
+              <span className="bodysmall">{recentCommit?.message}</span>
             </LineItem>
           </Box>
         </Section>
       </FadeIn>
       <FadeIn delay={0.55}>
         <Section>
-          <h2 className="s-b-sm">Visitor Count</h2>
-          <Box>{visitorCount}</Box>
+          <h2 className="s-b-sm">Misc</h2>
+          <Box>
+            <LineItem>
+              <span>Visitor Count</span>{" "}
+              <span className="bodysmall">{visitorCount}</span>
+            </LineItem>
+          </Box>
         </Section>
       </FadeIn>
     </Page>

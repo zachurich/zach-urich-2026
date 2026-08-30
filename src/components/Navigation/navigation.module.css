@@ -23,7 +23,7 @@
   stroke: var(--color-quaternary);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 950px) {
   .navigation {
     display: none;
   }
