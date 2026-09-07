@@ -13,6 +13,7 @@ import { getExternalRoutes } from "@/components/Navigation/helpers";
 import { InlineBox } from "@/components/InlineBox/InlineBox";
 import { ScrollTop } from "@/components/ScrollTop/ScrollTop";
 import { ClientVisitorCount } from "../ClientVisitorCount/ClientVisitorCount";
+import Image from "next/image";
 
 type Props = {
   className?: string;
@@ -25,7 +26,7 @@ export const Footer = async ({ className }: Props) => {
   const externalRoutes = getExternalRoutes();
   return (
     <footer className={classNames(styles.footer, className)}>
-      <div className={styles.spacer} />
+      <div className={styles.spacer}></div>
       <div className={styles.footerMain}>
         <Container className={styles.footerContainer}>
           <div className={styles.footerWrapper}>

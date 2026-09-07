@@ -19,7 +19,6 @@ export default async function Home() {
     limitPerRepo: 3,
     maxRepos: 5,
   });
-  console.log("commits", commits);
   return (
     <Page>
       <FadeIn>

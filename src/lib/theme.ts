@@ -16,6 +16,5 @@ export const getServerThemeFromCookie = (
 ): Theme => {
   if (!cookieHeader) return DEFAULT_THEME;
   const match = cookieHeader.match(/(?:^|; )theme=(light|dark)(?:;|$)/);
-  console.log("Parsed theme from cookie:", match ? match[1] : "none");
   return match ? (match[1] as Theme) : DEFAULT_THEME;
 };

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import styles from "./homeLink.module.css";
 import Link from "next/link";
+import { Logo } from "../Logo/Logo";
 
 type Props = {
   avatarUrl?: string;
@@ -43,7 +44,7 @@ export const HomeLink = (
           }}
         />*/}
         {/* <span className={styles.onlineIndicator} /> */}
-        <Image src={"/logo-thick.png"} alt="" width={40} height={40} />
+        <Logo />
         <span className="heading1 brand">Zach Urich</span>
       </div>
     </Link>

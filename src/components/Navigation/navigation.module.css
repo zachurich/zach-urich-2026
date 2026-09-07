@@ -11,6 +11,7 @@
 
 .navigationInner {
   position: fixed;
+  z-index: 101;
 }
 
 .secondary {
