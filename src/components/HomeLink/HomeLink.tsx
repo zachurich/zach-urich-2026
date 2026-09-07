@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import styles from "./homeLink.module.css";
 import Link from "next/link";
 import { Logo } from "../Logo/Logo";
+import { motion } from "motion/react";
 
 type Props = {
   avatarUrl?: string;
@@ -45,7 +45,17 @@ export const HomeLink = (
         />*/}
         {/* <span className={styles.onlineIndicator} /> */}
         <Logo />
-        <span className="heading1 brand">Zach Urich</span>
+        <motion.span
+          className="heading1 brand"
+          whileHover={{
+            rotate: "5deg",
+          }}
+          transition={{
+            duration: 0.1,
+          }}
+        >
+          Zach Urich
+        </motion.span>
       </div>
     </Link>
   );
