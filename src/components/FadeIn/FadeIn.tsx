@@ -8,9 +8,15 @@ type Props = {
   children?: React.ReactNode;
   delay?: number;
   tagType?: "div" | "span";
+  showWhenInView?: boolean;
 };
 
-export const FadeIn = ({ children, delay = 0, tagType = "div" }: Props) => {
+export const FadeIn = ({
+  children,
+  delay = 0,
+  tagType = "div",
+  showWhenInView = true,
+}: Props) => {
   const Tag = motion[tagType];
   const ref = useRef<HTMLDivElement | null>(null);
   const [delayState, setDelayState] = useState(delay);
@@ -34,8 +40,9 @@ export const FadeIn = ({ children, delay = 0, tagType = "div" }: Props) => {
     <Tag
       ref={ref}
       className={styles.fadeIn}
-      initial={{ opacity: 0, y: 5 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: showWhenInView ? 0 : 1, y: 5 }}
+      whileInView={showWhenInView ? { opacity: 1, y: 0 } : undefined}
+      animate={!showWhenInView ? { opacity: 1, y: 0 } : undefined}
       viewport={{ once: true, amount: 0.1, margin: "-10px" }}
       transition={{ duration: 0.25, ease: "easeIn", delay: delayState }}
     >

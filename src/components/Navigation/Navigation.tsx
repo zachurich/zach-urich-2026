@@ -83,7 +83,7 @@ export const Navigation = ({ tagType = "div", avatarUrl, handle }: Props) => {
   }, [pathname]);
 
   return (
-    <FadeIn delay={0.1}>
+    <FadeIn delay={0.1} showWhenInView={false}>
       <Tag
         className={classNames(styles.navigation, {
           [styles.mobileOpen]: mobileNav.isOpen,
