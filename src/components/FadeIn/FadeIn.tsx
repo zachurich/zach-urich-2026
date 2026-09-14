@@ -36,7 +36,7 @@ export const FadeIn = ({ children, delay = 0, tagType = "div" }: Props) => {
       className={styles.fadeIn}
       initial={{ opacity: 0, y: 5 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: 0.1, margin: "-10px" }}
       transition={{ duration: 0.25, ease: "easeIn", delay: delayState }}
     >
       {children}
