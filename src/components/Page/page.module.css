@@ -2,6 +2,8 @@
   display: flex;
   flex: 1;
   padding-top: calc(var(--spacing-base) * 4);
+  padding-bottom: var(--spacing-base);
   max-width: 100%;
+  min-height: 100lvh;
   /* Add your styles here */
 }

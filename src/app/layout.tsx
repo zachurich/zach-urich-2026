@@ -27,6 +27,11 @@ const secondaryFont = Courier_Prime({
 export const metadata: Metadata = {
   title: "zachurich.com",
   description: "Zach Urich's personal website",
+  icons: {
+    apple: "/apple-touch-icon.png",
+    icon: "/favicon-32x32.png",
+  },
+  manifest: "/site.webmanifest",
 };
 
 export default async function RootLayout({

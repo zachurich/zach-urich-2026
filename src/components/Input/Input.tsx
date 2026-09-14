@@ -6,18 +6,10 @@ import { useId } from "react";
 
 type Props = {
   className?: string;
-  type?: HTMLInputElement["type"];
-  value?: string;
-  placeholder?: string;
   label?: string;
   description?: string;
-  id?: string;
-  name?: string;
-  maxLength?: number;
-  minLength?: number;
-  required?: boolean;
   variant?: "default" | "textarea" | "honeypot";
-};
+} & React.InputHTMLAttributes<HTMLInputElement>;
 
 export const Input = ({
   className,
@@ -31,7 +23,9 @@ export const Input = ({
   minLength,
   maxLength,
   required,
+  disabled,
   variant = "default",
+  ...rest
 }: Props) => {
   const generatedId = useId();
 
@@ -42,8 +36,10 @@ export const Input = ({
         aria-hidden
         tab-index="-1"
         auto-complete="off"
-        placeholder="Your email"
         type={type}
+        name={name}
+        id={id}
+        {...rest}
       />
     );
   }
@@ -64,9 +60,11 @@ export const Input = ({
         required={required}
         value={value}
         placeholder={placeholder}
-        // @ts-expect-error React shit
-        minlength={minLength}
-        maxlength={maxLength}
+        minLength={minLength}
+        maxLength={maxLength}
+        aria-disabled={disabled}
+        disabled={disabled}
+        {...rest}
       />
     </div>
   );

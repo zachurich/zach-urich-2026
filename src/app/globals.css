@@ -121,6 +121,12 @@
   --foreground-variant: var(--color-neutral-700);
   --foreground-variant-2: var(--color-neutral-400);
 
+  --success: var(--color-tertiary-tint-1);
+  --success-variant: var(--color-tertiary);
+
+  --error: var(--color-secondary-tint-1);
+  --error-variant: var(--color-secondary);
+
   --primary-text-color: var(--foreground);
   --secondary-text-color: var(--foreground-variant);
 
@@ -138,6 +144,12 @@
 
     --foreground: var(--color-neutral-900);
     --foreground-variant: var(--color-neutral-700);
+
+    --success: var(--color-tertiary-shade-1);
+    --success-variant: var(--color-tertiary);
+
+    --error: var(--color-secondary-shade-2);
+    --error-variant: var(--color-secondary);
   }
 
   html {
@@ -155,6 +167,12 @@
   --foreground: var(--color-neutral);
   --foreground-variant: var(--color-neutral-300);
   --foreground-variant-2: var(--color-neutral-400);
+
+  --success: var(--color-tertiary-shade-1);
+  --success-variant: var(--color-tertiary);
+
+  --error: var(--color-secondary-shade-2);
+  --error-variant: var(--color-secondary);
 
   --border-primary: 1px solid var(--background-variant);
   --border-secondary: 2px solid var(--color-neutral-600);
