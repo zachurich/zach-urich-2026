@@ -53,6 +53,7 @@ export const Input = ({
         </span>
       )}
       <label htmlFor={id ?? generatedId}>{label}</label>
+      {/* @ts-expect-error html */}
       <Tag
         id={id ?? generatedId}
         name={name}
