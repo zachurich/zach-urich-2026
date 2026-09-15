@@ -1,5 +1,3 @@
-/* ─── Variables ─────────────────────────────────────────────────────────────── */
-
 :root {
   --color-primary-tint-1: #c1c2ff;
   --color-primary-tint-2: #8e78ff;
@@ -137,27 +135,41 @@
 
 /* ─── Theme ─────────────────────────────────────────────────────────────────── */
 
+/* No data-theme override set: follow the system preference. Keep in sync with :root[data-theme="dark"] below. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --background: var(--color-neutral);
-    --background-variant: var(--color-neutral-100);
+    color-scheme: dark;
 
-    --foreground: var(--color-neutral-900);
-    --foreground-variant: var(--color-neutral-700);
+    --brand: var(--color-primary-tint-2);
+    --brand-variant: var(--color-quaternary);
+    --brand-variant-2: var(--color-secondary-tint-2);
+    --background: var(--color-neutral-950);
+    --background-variant: var(--color-neutral-900);
+
+    --foreground: var(--color-neutral);
+    --foreground-variant: var(--color-neutral-300);
+    --foreground-variant-2: var(--color-neutral-400);
 
     --success: var(--color-tertiary-shade-1);
     --success-variant: var(--color-tertiary);
 
     --error: var(--color-secondary-shade-2);
     --error-variant: var(--color-secondary);
-  }
 
-  html {
-    color-scheme: dark;
+    --border-primary: 1px solid var(--background-variant);
+    --border-secondary: 2px solid var(--color-neutral-600);
   }
 }
 
+/* Explicit overrides win regardless of system preference */
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
 :root[data-theme="dark"] {
+  color-scheme: dark;
+
   --brand: var(--color-primary-tint-2);
   --brand-variant: var(--color-quaternary);
   --brand-variant-2: var(--color-secondary-tint-2);

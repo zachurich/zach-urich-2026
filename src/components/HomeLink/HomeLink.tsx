@@ -4,6 +4,7 @@ import styles from "./homeLink.module.css";
 import Link from "next/link";
 import { Logo } from "../Logo/Logo";
 import { motion } from "motion/react";
+import { FadeIn } from "../FadeIn/FadeIn";
 
 type Props = {
   avatarUrl?: string;
@@ -16,19 +17,20 @@ export const HomeLink = (
   }: Props,
 ) => {
   return (
-    <Link
-      href="/"
-      className={styles.homeLink}
-      onClick={() => {
-        window.scrollTo({
-          top: 0,
-          left: 0,
-          behavior: "smooth",
-        });
-      }}
-    >
-      <div className={styles.avatar}>
-        {/*<motion.div
+    <FadeIn delay={0.25}>
+      <Link
+        href="/"
+        className={styles.homeLink}
+        onClick={() => {
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+          });
+        }}
+      >
+        <div className={styles.avatar}>
+          {/*<motion.div
           style={{
             opacity: 1,
             boxShadow: "0 0 15px 10px var(--brand-3)",
@@ -43,20 +45,21 @@ export const HomeLink = (
             repeatType: "loop",
           }}
         />*/}
-        {/* <span className={styles.onlineIndicator} /> */}
-        <Logo />
-        <motion.span
-          className="heading1 brand"
-          whileHover={{
-            rotate: "5deg",
-          }}
-          transition={{
-            duration: 0.1,
-          }}
-        >
-          Zach Urich
-        </motion.span>
-      </div>
-    </Link>
+          {/* <span className={styles.onlineIndicator} /> */}
+          <Logo />
+          <motion.span
+            className="heading1 brand"
+            whileHover={{
+              rotate: "5deg",
+            }}
+            transition={{
+              duration: 0.1,
+            }}
+          >
+            Zach Urich
+          </motion.span>
+        </div>
+      </Link>
+    </FadeIn>
   );
 };

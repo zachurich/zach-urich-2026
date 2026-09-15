@@ -6,15 +6,20 @@ export const setThemeCookie = (theme: Theme) => {
   document.cookie = `theme=${theme}; path=/; max-age=31536000`; // 1 year
 };
 
-export const getThemeFromCookie = (): Theme => {
+/**
+ * Returns the visitor's saved theme override, or `null` if they've never
+ * set one. `null` means the UI should follow `prefers-color-scheme` rather
+ * than being pinned to `DEFAULT_THEME`.
+ */
+export const getThemeFromCookie = (): Theme | null => {
   const match = document.cookie.match(/(?:^|; )theme=(light|dark)(?:;|$)/);
-  return match ? (match[1] as Theme) : DEFAULT_THEME;
+  return match ? (match[1] as Theme) : null;
 };
 
 export const getServerThemeFromCookie = (
   cookieHeader: string | null,
-): Theme => {
-  if (!cookieHeader) return DEFAULT_THEME;
+): Theme | null => {
+  if (!cookieHeader) return null;
   const match = cookieHeader.match(/(?:^|; )theme=(light|dark)(?:;|$)/);
-  return match ? (match[1] as Theme) : DEFAULT_THEME;
+  return match ? (match[1] as Theme) : null;
 };

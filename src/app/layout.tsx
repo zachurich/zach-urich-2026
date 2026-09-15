@@ -46,7 +46,7 @@ export default async function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      data-theme={serverTheme}
+      data-theme={serverTheme ?? undefined}
       className={classNames(primaryFont.variable, secondaryFont.variable)}
     >
       <body>
