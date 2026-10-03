@@ -98,6 +98,13 @@ export const Footer = async ({ className }: Props) => {
           <div
             className={classNames(styles.footerCopyright, "bodysmall body2")}
           >
+            <Image
+              className="s-r-xs"
+              src="/me-cartoon.png"
+              alt="cartoon me with confused swirl"
+              width={36}
+              height={36}
+            />
             <Copyright size="12" style={{ display: "inline" }} />{" "}
             <span>{new Date().getFullYear()} Zach Urich.</span>
           </div>

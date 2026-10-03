@@ -79,6 +79,8 @@
   --border-radius-md: 8px;
   --border-radius-lg: 12px;
   --border-radius-xl: 16px;
+  --border-radius-1xl: 18px;
+  --border-radius-2xl: 20px;
   --border-radius-full: 9999px;
 
   --border-primary: 1px solid var(--color-neutral-200);
@@ -390,6 +392,10 @@ form {
 .form-group * {
   flex: 1;
   height: 100%;
+}
+
+img {
+  border-radius: var(--border-radius-md);
 }
 
 @media screen and (max-width: 950px) {

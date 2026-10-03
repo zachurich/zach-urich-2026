@@ -9,11 +9,15 @@ import { Box } from "@/components/Box/Box";
 import { LineItem } from "@/components/LineItem/LineItem";
 import { Cta } from "@/components/Cta/Cta";
 import { Metadata } from "next";
+import Image from "next/image";
+import { getAtprotoProfile } from "@/lib/atproto";
+
+import styles from "./home.module.css";
 
 export const metadata: Metadata = { title: "Home" };
 
 export default async function Home() {
-  // const Content = await pages.getPageBySlug("home");
+  const profile = await getAtprotoProfile();
   const recentPosts = posts.getSomePosts(3);
   const commits = await github.getLatestUserCommits({
     limitPerRepo: 3,
@@ -21,16 +25,28 @@ export default async function Home() {
   });
   return (
     <Page>
-      <FadeIn>
-        <h1>Welcome!</h1>
-      </FadeIn>
-      <FadeIn delay={0.35}>
-        <div className="body2 heading2variant s-b-xxl">
-          {
-            "i'm Zach. i'm a software engineer with a knack for creativity. i like to draw, take pictures, and play video games"
-          }
+      <div className={styles.intro}>
+        <Image
+          className="s-r-xs"
+          src={profile?.avatarUrl ?? "/bsky-avatar.png"}
+          alt="me with the ocean behind"
+          width={150}
+          height={150}
+          loading="eager"
+        />
+        <div>
+          <FadeIn>
+            <h1>Welcome!</h1>
+          </FadeIn>
+          <FadeIn delay={0.35}>
+            <div className="body2 heading2variant">
+              {
+                "i'm Zach. i build stuff on the web and have a knack for creativity."
+              }
+            </div>
+          </FadeIn>
         </div>
-      </FadeIn>
+      </div>
       <Section className="s-b-xxl">
         <FadeIn delay={0.45}>
           <h2 className="s-b-sm">Recent thoughts</h2>

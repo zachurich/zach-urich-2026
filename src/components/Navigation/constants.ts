@@ -42,7 +42,7 @@ export const routes: Route[] = [
     external: true,
   },
   {
-    name: "bluesky",
+    name: "Bluesky",
     path: "https://bsky.app/profile/zachurich.com",
     external: true,
   },

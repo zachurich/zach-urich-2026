@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.footer img {
+  border: 1px solid var(--foreground);
+}
+
 @media screen and (min-width: 950px) {
   .spacer {
     padding: 0 var(--spacing-base);
@@ -58,9 +62,9 @@ div.footerContainer {
   flex-direction: row;
   gap: var(--spacing-1xl);
 }
-
+/*
 .siteInfo {
-}
+}*/
 
 div.siteInfo ul {
   flex-direction: column;

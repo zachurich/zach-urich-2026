@@ -20,7 +20,7 @@ export default async function ContactPage() {
       </FadeIn>
       <FadeIn delay={0.35}>
         <h2 className="body2 heading2variant">
-          Ill get an email and may or may not reply
+          Feel free to reach out to me with any questions, or just say hello.
         </h2>
       </FadeIn>
       <Section>

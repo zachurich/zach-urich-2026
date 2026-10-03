@@ -1,3 +1,6 @@
+/**
+ * these aren't sensitive lol
+ */
 const BSKY_PUBLIC_API = "https://public.api.bsky.app/xrpc";
 const HANDLE = "zachurich.com";
 
