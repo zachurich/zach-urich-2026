@@ -10,8 +10,13 @@ import { LinkWithIcon } from "@/components/LinkWithIcon/LinkWithIcon";
 import { List } from "@/components/List/List";
 import visitor from "@/lib/visitor";
 import { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = { title: "Info" };
+export const metadata: Metadata = pageMetadata({
+  title: "Site Info",
+  description: "Site information for zachurich.com",
+  path: "/info",
+});
 
 export default async function AboutPage() {
   const recentCommit = await github.getLatestCommit();

@@ -8,6 +8,9 @@ import { BackLink } from "@/components/BackLink/BackLink";
 import { Box } from "@/components/Box/Box";
 import { CodeBlock } from "@/components/CodeBlock/CodeBlock";
 import { LinkWithIcon } from "@/components/LinkWithIcon/LinkWithIcon";
+import { JsonLd } from "@/components/JsonLd/JsonLd";
+import { AUTHOR, absoluteUrl, jsonLdPerson, pageMetadata } from "@/lib/seo";
+import { isoDateFromString } from "@/utils/dates";
 
 export function generateStaticParams() {
   return posts.getPostSlugs().map((slug) => ({ slug }));
@@ -21,8 +24,28 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const { title, description } = posts.getPostMetadata(slug);
-  return { title, description };
+  const { title, description, date } = posts.getPostMetadata(slug);
+  return {
+    ...pageMetadata({
+      title,
+      description,
+      path: `/writing/${slug}`,
+      openGraph: {
+        type: "article",
+        publishedTime: isoDateFromString(date),
+        authors: [AUTHOR.url],
+        images: [
+          {
+            url: `/writing/${slug}/opengraph-image`,
+            width: 1200,
+            height: 630,
+            alt: title,
+          },
+        ],
+      },
+    }),
+    authors: [AUTHOR],
+  };
 }
 
 const overrideComponents: MDXComponents = {
@@ -50,7 +73,7 @@ export default async function PostPage({
 }) {
   const { slug } = await params;
   const Content = await posts.getPostBySlug(slug);
-  const { title, date } = posts.getPostMetadata(slug);
+  const { title, description, date } = posts.getPostMetadata(slug);
   const nextPost = posts.getNextPost(slug);
   const formattedDate = new Date(date).toLocaleDateString("en-US", {
     year: "numeric",
@@ -59,6 +82,17 @@ export default async function PostPage({
   });
   return (
     <Page>
+      <JsonLd
+        data={{
+          "@type": "BlogPosting",
+          headline: title,
+          description,
+          datePublished: isoDateFromString(date),
+          url: absoluteUrl(`/writing/${slug}`),
+          image: absoluteUrl(`/writing/${slug}/opengraph-image`),
+          author: jsonLdPerson,
+        }}
+      />
       <BackLink className="s-b-xs" />
       <PostContent title={title} date={formattedDate}>
         <Content components={overrideComponents} />

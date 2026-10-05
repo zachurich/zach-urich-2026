@@ -11,6 +11,13 @@ import { getAtprotoProfile } from "../lib/atproto";
 import { headers } from "next/headers";
 import classNames from "classnames";
 import { Footer } from "@/components/Footer/Footer";
+import {
+  AUTHOR,
+  RSS_PATH,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_URL,
+} from "@/lib/seo";
 
 const primaryFont = Outfit({
   weight: ["300", "400", "500", "600", "700", "800", "900"],
@@ -25,8 +32,25 @@ const secondaryFont = Courier_Prime({
 });
 
 export const metadata: Metadata = {
-  title: "zachurich.com",
-  description: "Zach Urich's personal website",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_NAME,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
+  authors: [AUTHOR],
+  creator: AUTHOR.name,
+  openGraph: {
+    type: "website",
+    siteName: SITE_NAME,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+  alternates: {
+    types: { "application/rss+xml": RSS_PATH },
+  },
   icons: {
     apple: "/apple-touch-icon.png",
     icon: "/favicon-32x32.png",
@@ -49,6 +73,15 @@ export default async function RootLayout({
       data-theme={serverTheme ?? undefined}
       className={classNames(primaryFont.variable, secondaryFont.variable)}
     >
+      <head>
+        {/* Lets CSS hide content for entrance animations only once JS is
+            running, so crawlers and no-JS clients get fully visible HTML. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js')",
+          }}
+        />
+      </head>
       <body>
         <ThemeProvider initialTheme={serverTheme}>
           <MobileNavProvider>

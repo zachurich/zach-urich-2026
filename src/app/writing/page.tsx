@@ -6,8 +6,14 @@ import { LinkWithIcon } from "../../components/LinkWithIcon/LinkWithIcon";
 import { FadeIn } from "@/components/FadeIn/FadeIn";
 import { Metadata } from "next";
 import { AnimateWord } from "@/components/AnimateWord/AnimateWord";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = { title: "Writing" };
+export const metadata: Metadata = pageMetadata({
+  title: "Writing",
+  description:
+    "Posts by Zach Urich on web development, career, and various other topics.",
+  path: "/writing",
+});
 
 export default function WritingPage() {
   const allPosts = posts.getAllPosts();
@@ -19,9 +25,9 @@ export default function WritingPage() {
         </h1>
       </FadeIn>
       <FadeIn delay={0.35}>
-        <h2 className="body2 heading2variant">
+        <div className="body2 heading2variant">
           semi-coherent writings on various topics
-        </h2>
+        </div>
       </FadeIn>
 
       <Section>

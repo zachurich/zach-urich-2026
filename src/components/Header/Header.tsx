@@ -44,7 +44,15 @@ export const Header = ({ avatarUrl, handle }: Props) => {
         </div>
       </div>
       <div className={styles.right}>
-        <Button onClick={theme.toggleTheme} variant="icon">
+        <Button
+          onClick={theme.toggleTheme}
+          variant="icon"
+          aria-label={
+            theme.theme === "dark"
+              ? "Switch to light theme"
+              : "Switch to dark theme"
+          }
+        >
           {theme.theme === "dark" ? (
             <SunDim size={ICON_SIZE} />
           ) : (

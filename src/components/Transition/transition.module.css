@@ -1,3 +1,8 @@
 .transition {
   /* Add your styles here */
 }
+
+/* See FadeIn: only hidden once JS is confirmed to be running. */
+:global(.js) .hidden {
+  opacity: 0;
+}

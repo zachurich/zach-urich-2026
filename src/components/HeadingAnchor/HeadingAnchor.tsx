@@ -9,10 +9,10 @@ export const HeadingAnchor = ({ children, tagType }: Props) => {
   const Tag = tagType;
   const id = String(children).toLowerCase().replace(/\s+/g, "-");
   return (
-    <a className={styles.headingAnchor} href={`#${id}`} id={id}>
-      <Tag>
+    <Tag className={styles.headingAnchor} id={id}>
+      <a href={`#${id}`}>
         {children} <span className={styles.anchorIcon}>#</span>
-      </Tag>
-    </a>
+      </a>
+    </Tag>
   );
 };

@@ -11,10 +11,12 @@ import { Cta } from "@/components/Cta/Cta";
 import { Metadata } from "next";
 import Image from "next/image";
 import { getAtprotoProfile } from "@/lib/atproto";
+import { JsonLd } from "@/components/JsonLd/JsonLd";
+import { SITE_NAME, SITE_URL, jsonLdPerson, pageMetadata } from "@/lib/seo";
 
 import styles from "./home.module.css";
 
-export const metadata: Metadata = { title: "Home" };
+export const metadata: Metadata = pageMetadata({ path: "/" });
 
 export default async function Home() {
   const profile = await getAtprotoProfile();
@@ -25,6 +27,20 @@ export default async function Home() {
   });
   return (
     <Page>
+      <JsonLd
+        data={{
+          "@graph": [
+            jsonLdPerson,
+            {
+              "@type": "WebSite",
+              "@id": `${SITE_URL}/#website`,
+              name: SITE_NAME,
+              url: SITE_URL,
+              author: { "@id": jsonLdPerson["@id"] },
+            },
+          ],
+        }}
+      />
       <div className={styles.intro}>
         <Image
           className="s-r-xs"
@@ -36,13 +52,11 @@ export default async function Home() {
         />
         <div>
           <FadeIn>
-            <h1>Welcome!</h1>
+            <h1>hello! my name is zach</h1>
           </FadeIn>
           <FadeIn delay={0.35}>
             <div className="body2 heading2variant">
-              {
-                "i'm Zach. i build stuff on the web and have a knack for creativity."
-              }
+              {"i build stuff on the web and have a knack for creativity."}
             </div>
           </FadeIn>
         </div>

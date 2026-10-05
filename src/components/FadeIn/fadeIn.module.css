@@ -1,3 +1,9 @@
 .fadeIn {
   /* Add your styles here */
 }
+
+/* Hidden until animated in. Gated on the `js` class (set in the root layout)
+   so server-rendered HTML stays visible to crawlers and no-JS clients. */
+:global(.js) .hidden {
+  opacity: 0;
+}
