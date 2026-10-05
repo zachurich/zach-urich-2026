@@ -52,13 +52,11 @@ export default async function Home() {
         />
         <div>
           <FadeIn>
-            <h1>Welcome!</h1>
+            <h1>hello! my name is zach</h1>
           </FadeIn>
           <FadeIn delay={0.35}>
             <div className="body2 heading2variant">
-              {
-                "i'm Zach. i build stuff on the web and have a knack for creativity."
-              }
+              {"i build stuff on the web and have a knack for creativity."}
             </div>
           </FadeIn>
         </div>
