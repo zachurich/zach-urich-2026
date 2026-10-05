@@ -6,8 +6,14 @@ import { LinkWithIcon } from "../../components/LinkWithIcon/LinkWithIcon";
 import { FadeIn } from "@/components/FadeIn/FadeIn";
 import { Metadata } from "next";
 import { AnimateWord } from "@/components/AnimateWord/AnimateWord";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = { title: "Writing" };
+export const metadata: Metadata = pageMetadata({
+  title: "Writing",
+  description:
+    "Semi-coherent writings by Zach Urich on web development, career, life, and various other topics.",
+  path: "/writing",
+});
 
 export default function WritingPage() {
   const allPosts = posts.getAllPosts();

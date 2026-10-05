@@ -5,8 +5,13 @@ import { Metadata } from "next";
 import { AnimateWord } from "@/components/AnimateWord/AnimateWord";
 import { ContactForm } from "./components/ContactForm";
 import { getSubmission } from "../actions";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = { title: "Contact" };
+export const metadata: Metadata = pageMetadata({
+  title: "Contact",
+  description: "Get in touch with Zach Urich with questions, or just say hello.",
+  path: "/contact",
+});
 
 export default async function ContactPage() {
   const submittedBefore = await getSubmission();

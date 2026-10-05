@@ -6,13 +6,26 @@ import { PostContent } from "../../components/PostContent/PostContent";
 import { FadeIn } from "../../components/FadeIn/FadeIn";
 import { Metadata } from "next";
 import { AnimateWord } from "@/components/AnimateWord/AnimateWord";
+import { JsonLd } from "@/components/JsonLd/JsonLd";
+import { jsonLdPerson, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = { title: "About" };
+export const metadata: Metadata = pageMetadata({
+  title: "About",
+  description:
+    "About Zach Urich: dad, husband, and self-taught web engineer with a background in graphic design.",
+  path: "/about",
+});
 
 export default async function AboutPage() {
   const Content = await pages.getPageBySlug("about");
   return (
     <Page>
+      <JsonLd
+        data={{
+          "@type": "ProfilePage",
+          mainEntity: jsonLdPerson,
+        }}
+      />
       <FadeIn>
         <h1>
           A little about <AnimateWord>me...</AnimateWord>

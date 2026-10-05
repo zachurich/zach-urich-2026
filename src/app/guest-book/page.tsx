@@ -3,6 +3,13 @@ import { GuestBookEntry } from "@/components/GuestBookEntry/GuestBookEntry";
 import { Page } from "@/components/Page/Page";
 import { Section } from "@/components/Section/Section";
 import guestBook from "@/lib/guestBook";
+import type { Metadata } from "next";
+
+// Hidden from navigation while under construction, so keep it out of search.
+export const metadata: Metadata = {
+  title: "Guestbook",
+  robots: { index: false, follow: true },
+};
 
 export default async function GuestBookPage() {
   const entries = await guestBook.getGuestBookEntries();
