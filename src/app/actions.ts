@@ -1,6 +1,6 @@
 "use server";
 
-import { emailRegex, resend, toAddress } from "@/lib/resend";
+import { emailRegex, getResend, toAddress } from "@/lib/resend";
 import visitor from "@/lib/visitor";
 import { cookies } from "next/headers";
 
@@ -86,7 +86,7 @@ export async function sendEmail(initialState: unknown, data: FormData) {
   }
 
   try {
-    await resend.emails.send({
+    await getResend().emails.send({
       from: "Contact Form <onboarding@resend.dev>",
       to: toAddress,
       replyTo: email,
