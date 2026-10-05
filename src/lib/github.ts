@@ -148,6 +148,9 @@ export type LatestCommit = {
 
 const GITHUB_API_URL = "https://api.github.com";
 const USERNAME = "zachurich";
+// Cached so pages using GitHub data can be statically rendered and
+// regenerated in the background, instead of rendering on every request.
+const GITHUB_REVALIDATE_SECONDS = 60 * 60;
 
 const _fetchRepos = async (
   username: string,
@@ -163,7 +166,10 @@ const _fetchRepos = async (
     headers["Authorization"] = `token ${token}`;
   }
 
-  const response = await fetch(url, { headers });
+  const response = await fetch(url, {
+    headers,
+    next: { revalidate: GITHUB_REVALIDATE_SECONDS },
+  });
   if (!response.ok) {
     throw new Error(
       `GitHub API error: ${response.status} ${response.statusText}`,
@@ -195,7 +201,10 @@ const _fetchLatestCommits = async (
     headers["Authorization"] = `token ${token}`;
   }
 
-  const response = await fetch(url, { headers, cache: "no-store" });
+  const response = await fetch(url, {
+    headers,
+    next: { revalidate: GITHUB_REVALIDATE_SECONDS },
+  });
   if (!response.ok) {
     throw new Error(
       `GitHub API error: ${response.status} ${response.statusText}`,
