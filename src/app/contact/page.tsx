@@ -24,9 +24,9 @@ export default async function ContactPage() {
         </h1>
       </FadeIn>
       <FadeIn delay={0.35}>
-        <h2 className="body2 heading2variant">
+        <div className="body2 heading2variant">
           Feel free to reach out to me with any questions, or just say hello.
-        </h2>
+        </div>
       </FadeIn>
       <Section>
         <div>

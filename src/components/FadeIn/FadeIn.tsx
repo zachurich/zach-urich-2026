@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import styles from "./fadeIn.module.css";
 import { useCallback, useEffect, useRef, useState } from "react";
+import classNames from "classnames";
 
 type Props = {
   children?: React.ReactNode;
@@ -39,8 +40,12 @@ export const FadeIn = ({
   return (
     <Tag
       ref={ref}
-      className={styles.fadeIn}
-      initial={{ opacity: showWhenInView ? 0 : 1, y: 5 }}
+      className={classNames(styles.fadeIn, {
+        [styles.hidden]: showWhenInView,
+      })}
+      // Starting opacity comes from CSS (`.hidden`) rather than an inline
+      // style, so the server-rendered HTML isn't invisible without JS.
+      initial={showWhenInView ? { y: 5 } : { opacity: 1, y: 5 }}
       whileInView={showWhenInView ? { opacity: 1, y: 0 } : undefined}
       animate={!showWhenInView ? { opacity: 1, y: 0 } : undefined}
       viewport={{ once: true, amount: 0.1, margin: "-10px" }}

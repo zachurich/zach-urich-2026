@@ -107,7 +107,7 @@ export const Navigation = ({ tagType = "div", avatarUrl, handle }: Props) => {
               key={mobileNav.isOpen ? "headingOpen" : "headingClosed"}
               delay={0.2}
             >
-              <h2 className="heading3 body2">Links</h2>
+              <div className="heading3 body2">Links</div>
             </FadeIn>
             <ul
               className={classNames(

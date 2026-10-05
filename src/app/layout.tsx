@@ -73,6 +73,15 @@ export default async function RootLayout({
       data-theme={serverTheme ?? undefined}
       className={classNames(primaryFont.variable, secondaryFont.variable)}
     >
+      <head>
+        {/* Lets CSS hide content for entrance animations only once JS is
+            running, so crawlers and no-JS clients get fully visible HTML. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js')",
+          }}
+        />
+      </head>
       <body>
         <ThemeProvider initialTheme={serverTheme}>
           <MobileNavProvider>

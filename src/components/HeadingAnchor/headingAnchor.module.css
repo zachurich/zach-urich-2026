@@ -6,6 +6,12 @@
   flex-direction: row;
 }
 
+/* Keep heading weight and no underline, matching the old wrapping link */
+.headingAnchor a {
+  text-decoration: none;
+  font-weight: inherit;
+}
+
 .anchorIcon {
   visibility: hidden;
   color: var(--brand-variant);

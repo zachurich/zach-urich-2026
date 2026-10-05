@@ -25,9 +25,9 @@ export default function WritingPage() {
         </h1>
       </FadeIn>
       <FadeIn delay={0.35}>
-        <h2 className="body2 heading2variant">
+        <div className="body2 heading2variant">
           semi-coherent writings on various topics
-        </h2>
+        </div>
       </FadeIn>
 
       <Section>
