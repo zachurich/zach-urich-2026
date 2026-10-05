@@ -4,7 +4,7 @@ import { getExternalRoutes } from "@/components/Navigation/helpers";
 export const SITE_URL = "https://zachurich.com";
 export const SITE_NAME = "Zach Urich";
 export const SITE_DESCRIPTION =
-  "Zach Urich is a self-taught web engineer with a background in graphic design. Writing about web development, career, video games, and whatever else.";
+  "Zach Urich is a self-taught web engineer with a background in graphic design. Zach sometimes writes about web development, career, video games, and whatever else.";
 export const RSS_PATH = "/writing/feed.xml";
 
 export const AUTHOR = {
