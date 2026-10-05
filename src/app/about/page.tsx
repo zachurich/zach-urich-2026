@@ -11,8 +11,7 @@ import { jsonLdPerson, pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "About",
-  description:
-    "About Zach Urich: dad, husband, and self-taught web engineer with a background in graphic design.",
+  description: "Read more about Zach Urich.",
   path: "/about",
 });
 

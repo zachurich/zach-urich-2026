@@ -11,7 +11,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Writing",
   description:
-    "Semi-coherent writings by Zach Urich on web development, career, life, and various other topics.",
+    "Posts by Zach Urich on web development, career, and various other topics.",
   path: "/writing",
 });
 

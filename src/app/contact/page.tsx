@@ -9,7 +9,7 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Contact",
-  description: "Get in touch with Zach Urich with questions, or just say hello.",
+  description: "Reach out to Zach Urich.",
   path: "/contact",
 });
 

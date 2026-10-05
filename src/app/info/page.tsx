@@ -14,8 +14,7 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Site Info",
-  description:
-    "The tech stack, latest commit, and other details behind zachurich.com.",
+  description: "Site information for zachurich.com",
   path: "/info",
 });
 
