@@ -6,8 +6,6 @@ import { LinkWithIcon } from "@/components/LinkWithIcon/LinkWithIcon";
 import { List } from "@/components/List/List";
 import github from "@/lib/github";
 import { dateFromString } from "@/utils/dates";
-import visitor from "@/lib/visitor";
-import { cookies } from "next/headers";
 import { Container } from "@/components/Container/Container";
 import { getExternalRoutes } from "@/components/Navigation/helpers";
 import { InlineBox } from "@/components/InlineBox/InlineBox";
@@ -21,8 +19,6 @@ type Props = {
 
 export const Footer = async ({ className }: Props) => {
   const latestCommit = await github.getLatestCommit();
-  const cookieList = await cookies();
-  const visited = visitor.getVistedCookie(cookieList.get("visited")?.value);
   const externalRoutes = getExternalRoutes();
   return (
     <footer className={classNames(styles.footer, className)}>
@@ -108,7 +104,7 @@ export const Footer = async ({ className }: Props) => {
             <Copyright size="12" style={{ display: "inline" }} />{" "}
             <span>{new Date().getFullYear()} Zach Urich.</span>
           </div>
-          <ClientVisited visited={visited} />
+          <ClientVisited />
         </Container>
       </div>
     </footer>
