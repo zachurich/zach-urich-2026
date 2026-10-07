@@ -12,6 +12,9 @@ import visitor from "@/lib/visitor";
 import { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
 
+// Visitor count comes from the database, so render per request.
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = pageMetadata({
   title: "Site Info",
   description: "Site information for zachurich.com",
