@@ -4,15 +4,14 @@ import { incrementVisitorCount } from "@/app/actions";
 import { useEffect } from "react";
 
 /**
- * UI-less component that posts to the /api/visited endpoint to update the visitor count.
- * @returns
+ * UI-less component that calls a server action to update the visitor count.
+ * The action checks the httpOnly `visited` cookie, so repeat visitors aren't
+ * counted twice. Lives in the root layout, so it runs once per full page load.
  */
-export const ClientVisited = ({ visited }: { visited: boolean }) => {
+export const ClientVisited = () => {
   useEffect(() => {
-    if (!visited) {
-      incrementVisitorCount();
-    }
-  }, [visited]);
+    incrementVisitorCount();
+  }, []);
 
   return null;
 };

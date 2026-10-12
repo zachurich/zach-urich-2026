@@ -15,11 +15,3 @@ export const getThemeFromCookie = (): Theme | null => {
   const match = document.cookie.match(/(?:^|; )theme=(light|dark)(?:;|$)/);
   return match ? (match[1] as Theme) : null;
 };
-
-export const getServerThemeFromCookie = (
-  cookieHeader: string | null,
-): Theme | null => {
-  if (!cookieHeader) return null;
-  const match = cookieHeader.match(/(?:^|; )theme=(light|dark)(?:;|$)/);
-  return match ? (match[1] as Theme) : null;
-};

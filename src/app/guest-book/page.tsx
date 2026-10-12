@@ -5,6 +5,9 @@ import { Section } from "@/components/Section/Section";
 import guestBook from "@/lib/guestBook";
 import type { Metadata } from "next";
 
+// Entries come from the database, so render per request.
+export const dynamic = "force-dynamic";
+
 // Hidden from navigation while under construction, so keep it out of search.
 export const metadata: Metadata = {
   title: "Guestbook",
